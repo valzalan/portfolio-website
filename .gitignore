@@ -1,5 +1,5 @@
 npm_cheat_sheet.txt
 ToDo.txt
-node_modules/
-.sass-cache/
-mockup/
+/node_modules
+/.sass-cache
+/mockup

@@ -1,0 +1,33 @@
+body {
+  background-color: $primary-color;
+  transition: background-color 0.3s ease;
+  overflow: visible;
+  z-index: -2;
+}
+
+section {
+  z-index: 0;
+}
+
+.big-title{
+  z-index: -1;
+  cursor: default;
+}
+
+.bckgrLines {
+  z-index: -1;
+  overflow: hidden;
+}
+
+.line::after {
+  @extend %line;
+
+  background-color: $white;
+  opacity: 0.05;
+}
+
+.line.black::after {
+  @extend %line;
+
+  background-color: $primary-color;
+}

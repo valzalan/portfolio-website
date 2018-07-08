@@ -1,0 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i');
+
+@mixin roboto($weight: 400, $size: 1em, $color: $primary-color) {
+  font-family: 'Roboto', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin raleway($weight: 400, $size: 1em, $color: $primary-color) {
+  font-family: 'Raleway', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin openSans($weight: 400, $size: 1em, $color: $primary-color) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin robotoMono($weight: 400, $size: 1em, $color: $primary-color) {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}

@@ -1,0 +1,226 @@
+//                   Nav
+
+nav {
+
+  a {
+    @include roboto(500, 40px, $white);
+  }
+
+  #sectionName {
+    @include robotoMono(300, 12px, $white);
+
+    letter-spacing: 1px;
+    writing-mode: tb-rl;
+  }
+
+  td, li {
+    @include roboto(400, 20px, $white);
+  }
+}
+
+//                   Hero
+
+#hero {
+
+  div {
+    text-align: center;
+  }
+
+  h1 {
+    @include roboto(700, 42px, $white);
+
+    letter-spacing: 2px;
+    white-space: pre-line;
+
+    @media screen and (max-width: $screen-m) {
+      font-size: 4.4vw;
+    }
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 7vw;
+    }
+  }
+
+  #lang {
+    @include raleway(100, 12px, $white);
+  }
+
+  .row1 {
+    text-align: right !important;
+
+    p {
+      @include roboto(100, 14px, $white);
+    }
+  }
+
+  .row3 {
+
+    p {
+      @include raleway(100, 14px, $white);
+    }
+
+    #contact-button {
+      @include raleway(300, 22px, $accent-color);
+    }
+
+    #contact-button:hover {
+      color: $white;
+    }
+  }
+
+  .row4 {
+    @include raleway(100, 13px, $white);
+
+    .col1 {
+      text-align: left;
+    }
+
+    .col3 {
+      text-align: right;
+    }
+  }
+}
+
+//                   About
+
+#about {
+
+  @media screen and (max-width: $screen-s) {
+    text-align: center;
+  }
+
+  h2 {
+    @include roboto(900, 65px, $primary-color);
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 45px;
+    }
+  }
+
+  h3 {
+    @include roboto(900, 35px, $primary-color);
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    @include raleway(200, 16px, $primary-color);
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 13px;
+    }
+  }
+
+  span:not(#age) {
+    @include roboto(900, 180px, rgba(34,38,41,0.1));
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 120px;
+    }
+  }
+}
+
+//                   Skills
+
+#skills {
+
+  h2 {
+    @include roboto(900, 65px, $primary-color);
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 45px;
+    }
+  }
+
+  h3 {
+    @include roboto(900, 20px, $primary-color);
+  }
+
+  li {
+    @include raleway(200, 20px, $primary-color);
+  }
+
+  span {
+    @include roboto(900, 180px, rgba(34,38,41,0.1));
+  }
+}
+
+//                   Projects
+
+#projects {
+
+  h2 {
+    @include roboto(900, 65px, $white);
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 45px;
+    }
+  }
+
+  h3 {
+    @include roboto(900, 30px, $white);
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+
+  p {
+    @include raleway(200, 16px, $white);
+
+    @media screen and (max-width: $screen-s) {
+      font-size: 13px;
+      text-align: center;
+    }
+  }
+
+  span {
+    @include roboto(900, 180px, hsl(206,9%,16.5%));
+  }
+
+  .readme {
+    text-align: center;
+  }
+}
+
+//                   Contact
+
+#contact {
+
+  p {
+    @include raleway(200, 16px, $primary-color);
+  }
+
+  h2 {
+    @include roboto(900, 25px, $primary-color);
+
+    text-align: center;
+  }
+
+  input, textarea {
+    @include raleway(200, 16px, $primary-color);
+  }
+
+  span {
+    @include roboto(900, 160px, rgba(34,38,41,0.1));
+  }
+
+  #submit {
+    @include roboto(500, 20px, $gray);
+  }
+}
+
+//                   Footer
+
+footer {
+  text-align: center;
+
+  p, span, input {
+    @include robotoMono(300, 12px, $white);
+
+    white-space: pre;
+  }
+}

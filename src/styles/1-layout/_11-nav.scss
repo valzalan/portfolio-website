@@ -1,0 +1,55 @@
+nav {
+  position: fixed;
+  height: 100vh;
+
+  #sectionName {
+    position: absolute;
+    left: 45px;
+    top: 46.5%;
+  }
+
+  #navContainer {
+    height: 100vh;
+    width: 0vw;
+
+    ul {
+      position: relative;
+      top: 18%;
+      left: 30%;
+
+      li {
+        margin-bottom: 0.7em;
+
+        a {
+          position: relative;
+          left: 20%;
+        }
+      }
+    }
+
+    td {
+        padding-right: 1em;
+    }
+  }
+
+  #sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 45px;
+
+    .line {
+      position: relative;
+      left: 0;
+      height: 100%;
+    }
+
+    #menu {
+      float: left;
+    }
+
+    #menu-icon {
+      width: 45px;
+      height: 100vh;
+    }
+  }
+}

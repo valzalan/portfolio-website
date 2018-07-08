@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang=engUS>
+<head>
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="description" content="Personal portfolio website"/>
+  <meta name="keywords" content="portfolio, web, design, development, resume, junior, javascript, frontend, developer, designer"/>
+  <meta name="author" content="Zalán Valkó"/>
+  <link rel="stylesheet" href="styles/main.css"/>
+
+  <title>Zalán Valkó's portfolio</title>
+</head>
+
+<body>
+  <!--=================   Navigation   =================-->
+  <nav>
+
+    <span id="sectionName">01_home</span>
+
+    <div id="sidebar">
+      <div id="menu">
+        <img id="menu-icon" src="img/menu.svg"/>
+      </div>
+      <div class="line"></div>
+    </div>
+
+    <div id="navContainer">
+      <ul>
+        <li>
+          <table>
+            <tr>
+              <td id="Eng">Eng</td>
+              <td>/</td>
+              <td id="Hun">Hun</td>
+            </tr>
+          </table>
+        </li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>Download my resume</li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <!--=================   Background lines   =================-->
+
+  <div class="bckgrLines wrapper">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!--=================   Hero Area   =================-->
+  <main>
+
+    <section id="hero" class="wrapper">
+
+        <div class="row1">
+          <span id="lang">eng</span>
+          <p class="heroContact" id="hPhone">+36/70/537-3697</p>
+          <p class="heroContact" id="hEmail">valzalan@gmail.com</p>
+        </div>
+
+        <div class="row2">
+          <h1>Hi! I'm Zalán.<br>Tech enthusiast & aspiring<br>frontend developer.</h1>
+        </div>
+
+        <div class="row3">
+          <div id="contact-button">Contact me</div>
+          <p>or<br>scroll and discover more...</p>
+        </div>
+
+        <div class="row4">
+          <div class="col1 heroContact">Resumé</div>
+          <div class="col2">
+            <img id="scroll" src="img/scroll.svg" alt="scroll"/>
+          </div>
+          <div class ="col3">
+
+            <table>
+              <tr>
+                <td><img class="icon" src="img/facebook-logo.svg" alt="facebook"/></td>
+                <td><img class="icon" src="img/github-logo.svg" alt="github"/></td>
+                <td><img class="icon" src="img/linkedin-logo.svg" alt="linkedin"/></td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+
+    </section>
+
+    <!--=================   About Area   =================-->
+
+    <section id="about" class="wrapper">
+
+      <h2>Who am I?</h2>
+
+      <div>
+        <img id="profile" src="img/profile3.png" alt="It's me!"/>
+        <h3>Zalán Valkó</h3>
+      </div>
+
+      <div>
+        <h3>
+          <span id="age">
+            <script>
+
+              let birthday = new Date( Date.parse( "1997.08.25" ) );
+              let ageDifMs = Date.now() - birthday.getTime();
+              let ageDate = new Date( ageDifMs );
+              document.getElementById( "age" ).innerHTML = String( Math.abs( ageDate.getUTCFullYear() - 1970 ) );
+
+            </script>
+          </span>years old Computer Science student based in Miskolc, Hungary.
+        </h3>
+
+        <p>My fascination with computers started at an early age, I was stunned by movie visual effects.
+        I desperately wanted to learn the craft, so I started reading about design.
+        </p>
+        <p>
+        Few years down the line
+        I've gained a lot of experience editing photos, and making various logos and designs with Photoshop.
+        I also started tinkering with 3D modelling and advanced to a not so bad level at it.
+        As I was finishing high school, and started looking for University courses I realized what I
+        was really interested in. And although I enjoyed designing, software and web development really
+        fascinated me more. So I applied for a CS degree.
+        </p>
+        <p>
+        And after that I just slipped down a deep rabbit hole. I feel like I want to know every possible thing
+        about computers and development, every technology that is available or will be. But what especially intrigues
+        me is machine learning and web application development. I wish to further my knowledge in these areas in the future.
+        </p>
+      </div>
+
+    <span class="big-title">ABOUT ME</span>
+
+    </section>
+
+    <!--=================   Skills Area   =================-->
+
+    <section id="skills" class="wrapper">
+
+      <h2>Things I'm good at</h2>
+
+      <div>
+        <h3>Languages</h3>
+        <ul>
+          <li><p>JavaScript (ES6)</p></li>
+          <li><p>HTML5</p></li>
+          <li><p>CSS3</p></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Frameworks and libraries</h3>
+        <ul>
+          <li><p>jQuery</p></li>
+          <li><p>Sass</p></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Tools & utilities</h3>
+        <ul>
+          <li><p>npm</p></li>
+          <li><p>Git</p></li>
+          <li><p>Browserify</p></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Software</h3>
+        <ul>
+          <li><p>Photoshop</p></li>
+          <li><p>Premiere</p></li>
+          <li><p>After Effects</p></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Personal</h3>
+        <ul>
+          <li><p>Lorem Ipsum</p></li>
+          <li><p>Lorem Ipsum</p></li>
+        </ul>
+      </div>
+
+      <span class="big-title">SKILLS</span>
+
+    </section>
+
+    <!--=================   Projects Area   =================-->
+
+    <section id="projects" class="wrapper">
+
+      <h2>What I've done so far</h2>
+
+      <div class="left-container">
+        <div class="img-background">
+          <div class="image" id="sudoku"></div>
+        </div>
+        <div class="text-container">
+          <h3>A Simple Sudoku App</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat.
+          </p>
+          <p class="readme">Read more...</p>
+        </div>
+      </div>
+
+      <div class="right-container">
+        <div class="img-background">
+          <div class="image" id="grandsight"></div>
+        </div>
+        <div class="text-container">
+          <h3>GrandSight webdesign site</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat.
+          </p>
+          <p class="readme">Read more...</p>
+        </div>
+      </div>
+
+      <div class="left-container">
+        <div class="img-background">
+          <div class="image" id="placeholder"></div>
+        </div>
+        <div class="text-container">
+          <h3>Placeholder</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat.
+          </p>
+          <p class="readme">Read more...</p>
+        </div>
+      </div>
+
+    <span class="big-title">PROJECTS</span>
+
+    </section>
+  </main>
+
+  <!--=================   Contact Area   =================-->
+
+  <section id="contact" class="wrapper">
+
+    <h2>If you're either interested in my professional career, or just want to say hi,<br>hit me with an email!</h2>
+
+    <div>
+      <form method="" id="contact_form" action="">
+        <ul>
+          <li><input type="text" id="name" name="name" placeholder="Name" required></li>
+          <li><input type="email" id="email" name="email" placeholder="E-mail" required></li>
+          <li><input type="text" id="phone" name="phone" placeholder="Phone"></li>
+          <li><textarea form = "contact_form" name="message" placeholder="Your message..."></textarea></li>
+          <li id="button-container"><button type="button" id="submit">Submit</button></li>
+        </ul>
+      </form>
+    </div>
+
+    <object id="contact-line">
+      <svg width="2px" height="350px">
+        <line x1="0" y1="0" x2="0" y2="350" stroke="#222629" stroke-width="2"/>
+      </svg>
+    </object>
+
+    <div>
+      <ul>
+        <li><img src="img/phone-contact.svg" alt="Phone icon"/><p>+36/70/537-3697</p></li>
+        <li><img src="img/email-contact.svg" alt="Email icon"/><p>valzalan@gmail.com</p></li>
+        <li><img src="img/facebook-contact.svg" alt="Facebook icon"/><p>Facebook</p></li>
+        <li><img src="img/github-contact.svg" alt="Github icon"/><p>Github</p></li>
+        <li><img src="img/linkedin-contact.svg" alt="Linkedin icon"/><p>Linkedin</p></li>
+      </ul>
+    </div>
+
+  <span class="big-title">CONTACT ME</span>
+
+  </section>
+
+  <!--=================   Footer Area   =================-->
+
+  <footer>
+    <form action="" method="" id=lang_form>
+      <span>Language:</span>
+      <input list="languages" name="lang" placeholder="English">
+      <datalist id="languages">
+        <option value="English">
+        <option value="Hungarian">
+      </datalist>
+    </form>
+
+    <p>Valkó Zalán  <span id="year"></span> &copy All rights reserved</p>
+    <script>
+
+      let year = new Date().getFullYear();
+      document.getElementById( "year" ).innerHTML = year;
+
+    </script>
+  </footer>
+  <script src="scripts\bundle.js"></script>
+</body>
+</html>

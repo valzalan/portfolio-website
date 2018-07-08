@@ -1,0 +1,66 @@
+#hero{
+
+  #contact-button {
+    border: $accent-color 6px solid;
+  }
+
+  #scroll {
+    transform: rotate(90deg);
+  }
+
+  .heroContact:hover {
+      cursor: pointer;
+      color: $accent-color;
+  }
+
+  .row1{
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    }
+  }
+
+  #hPhone {
+    //TODO Auto call?
+  }
+
+  #hEmail {
+    //TODO Auto email?
+  }
+
+  #contact-button {
+    display: inline-block;
+    padding: 14px 50px;
+    transition: color 200ms;
+    position: relative;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    @media screen and (max-width: $screen-m) {
+      padding: 2.2vh 8vw;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $accent-color;
+      transform: scaleX(0);
+      transform-origin: 50%;
+      transition-property: transform;
+      transition: 200ms ease-out;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+      cursor: pointer;
+    }
+  }
+}

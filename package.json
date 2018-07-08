@@ -1,0 +1,20 @@
+{
+  "name": "valzalan.me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify src/scripts/main.js -o build/scripts/bundle.js",
+    "watch-js": "watchify src/scripts/main.js -o build/scripts/bundle.js -v",
+    "watch-css": "sass --watch src/styles/main.scss:build/styles/main.css"
+  },
+  "author": "Zalán Valkó",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0",
+    "svg.js": "^2.6.5"
+  }
+}

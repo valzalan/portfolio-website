@@ -1,0 +1,30 @@
+#projects {
+
+  .image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+  }
+
+  .img-background {
+    background-color: $accent-color;
+  }
+
+  .readme {
+    border: 3px solid $accent-color;
+  }
+
+  #sudoku {
+    background-image: url("../img/sudoku-placeholder.png");
+  }
+
+  #grandsight {
+    background-image: url("../img/grandsight-placeholder.png");
+  }
+
+  #placeholder {
+    background-image: url("../img/placeholder.jpg");
+  }
+}

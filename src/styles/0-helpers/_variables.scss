@@ -24,3 +24,54 @@ $screen-s: 550px;
   height: 100%;
   position: absolute;
 }
+
+%right-sweep-animation{
+  position: relative;
+  transform: translateZ(0);
+  transition: color 1000ms;
+
+  &:before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $accent-color;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition-property: transform;
+    transition: 200ms ease-out;
+  }
+
+  &:hover:before{
+    transform: scaleX(1);
+  }
+}
+
+%middle-out-sweep-animation{
+  position: relative;
+  transition: color 200ms;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $accent-color;
+    transform: scaleX(0);
+    transform-origin: 50%;
+    transition-property: transform;
+    transition: 200ms ease-out;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}

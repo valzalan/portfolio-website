@@ -11,6 +11,15 @@
     grid-template-rows: 4fr 3fr 1fr;
   }
 
+  #contact-button{
+    display: inline-block;
+    padding: 14px 50px;
+
+    @media screen and (max-width: $screen-m) {
+      padding: 2.2vh 8vw;
+    }
+  }
+
   #lang {
     float: left;
     margin-left: 44px;
@@ -19,6 +28,10 @@
   .row1 {
     margin-right: 2em;
     margin-top: 1.5em;
+
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    }
 
     p:nth-child(1) {
       padding-bottom: 1em;

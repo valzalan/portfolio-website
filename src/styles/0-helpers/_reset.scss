@@ -16,6 +16,10 @@ table {
   border-collapse: collapse;
 }
 
+input, textarea, button{
+  outline: none;
+}
+
 th {
   text-align: inherit;
 }

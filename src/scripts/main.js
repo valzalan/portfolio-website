@@ -3,7 +3,6 @@ const $ = require( "jquery" );
 
 $( document ).ready( function() {
 
-
   //------      Own modules      ------
 
   const background = require( "./background.js" );
@@ -58,13 +57,13 @@ $( document ).ready( function() {
 
   function updateBrPoints() {
 
-    let winHeight = $(window).height();
+    let winHeight = $( window ).height();
 
     let marginHeights = 0, contentHeight;
 
     let breakPoints = [];
 
-    let sections = ["#hero", "#about", "#skills", "#projects"];
+    let sections = [ "#hero", "#about", "#skills", "#projects" ];
 
     for( let i = 0; i < 4; i++ ) {
 

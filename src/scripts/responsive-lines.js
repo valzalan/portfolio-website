@@ -10,15 +10,9 @@ module.exports = function( width, lineCount ) {
     $( ".bckgrLines" ).css( "grid-template-columns", `repeat(${lineCount - 1}, 1fr)` );
   }
 
-  if( width > 750 && lineCount == 5 ) {
+  if( ( width > 750 && lineCount == 5 ) ||
+      ( width > 350 && lineCount == 4 ) {
 
     $( ".bckgrLines" ).find( "div:visible:last" ).show();
     $( ".bckgrLines" ).css( "grid-template-columns", `repeat(${lineCount + 1}, 1fr)` );
   }
-
-  if( width < 750 && width > 350 && lineCount ) {
-
-    $( ".bckgrLines" ).find( "div:visible:last" ).hide();
-    $( ".bckgrLines" ).css( "grid-template-columns", `repeat(${lineCount - 1}, 1fr)` );
-  }
-}

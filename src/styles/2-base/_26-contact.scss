@@ -1,13 +1,11 @@
 #contact {
 
-  input, button {
+  input, button, textarea {
     border: none;
     border-bottom: 2px solid $gray;
   }
 
   textarea {
-    border: none;
-    border-bottom: 2px solid $gray;
     resize: vertical;
   }
 

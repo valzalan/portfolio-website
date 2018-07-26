@@ -124,21 +124,24 @@
           </span>years old Computer Science student based in Miskolc, Hungary.
         </h3>
 
-        <p>My fascination with computers started at an early age, I was stunned by movie visual effects.
-        I desperately wanted to learn the craft, so I started reading about design.
+        <p>I've always loved building things. At first I picked up graphic design
+        and 3D modelling as a hobby, but quickly realised that technology, and
+        computers were even closer to my heart.
+        </p>
+        <p>Since my first year in University, I've been learning everything I
+        can about software and <strong>web development.</strong> I'm a
+        <strong>passionate</strong> and <strong>very ambitious</strong> developer,
+        who wants to help companies grow through innovation and automation.
+        I love thinking about new ways of doing things, and improving every
+        possible thing that I encounter.
         </p>
         <p>
-        Few years down the line
-        I've gained a lot of experience editing photos, and making various logos and designs with Photoshop.
-        I also started tinkering with 3D modelling and advanced to a not so bad level at it.
-        As I was finishing high school, and started looking for University courses I realized what I
-        was really interested in. And although I enjoyed designing, software and web development really
-        fascinated me more. So I applied for a CS degree.
-        </p>
-        <p>
-        And after that I just slipped down a deep rabbit hole. I feel like I want to know every possible thing
-        about computers and development, every technology that is available or will be. But what especially intrigues
-        me is machine learning and web application development. I wish to further my knowledge in these areas in the future.
+        Outside of web development I love to read and learn about <strong>machine
+        learning</strong> and <strong>automation.</strong> I believe AI will be
+        one of the most consequencial events in the history of technology. I also
+        have a deep love of astronomy, space travel, and electric cars.
+        <br>
+        <em>  -- Go Elon!</em>
         </p>
       </div>
 
@@ -173,6 +176,7 @@
         <h3>Tools & utilities</h3>
         <ul>
           <li><p>npm</p></li>
+          <li><p>Gulp</p></li>
           <li><p>Git</p></li>
           <li><p>Browserify</p></li>
         </ul>
@@ -188,10 +192,10 @@
       </div>
 
       <div>
-        <h3>Personal</h3>
+        <h3>Other and personal</h3>
         <ul>
-          <li><p>Lorem Ipsum</p></li>
-          <li><p>Lorem Ipsum</p></li>
+          <li><p>Basic Linux</p></li>
+          <li><p>Can pull 2 all-nighters in a row</p></li>
         </ul>
       </div>
 
@@ -207,16 +211,16 @@
 
       <div class="left-container">
         <div class="img-background">
-          <div class="image" id="sudoku"></div>
+          <div class="image" id="sudoku" onclick="location.href='sudoku.html';"></div>
         </div>
         <div class="text-container">
           <h3>A Simple Sudoku App</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat.
+          <p>An intuitive sudoku game app. Made entirely with pure HTML, CSS and
+            JavaScript. My primary goal with this app was to implement an algorithm to
+            solve any sudoku grids. The grid generator function was added as an
+            afterthought.
           </p>
-          <p class="readme">Read more...</p>
+          <p id="sudoku-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
         </div>
       </div>
 
@@ -226,12 +230,11 @@
         </div>
         <div class="text-container">
           <h3>GrandSight webdesign site</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat.
+          <p>A clear, simplistic website design. It was originally built for a startup,
+            that me and my friend wanted to build, but it never actually got going. It was made
+            with plain HTML and CSS.
           </p>
-          <p class="readme">Read more...</p>
+          <p id="grandsight-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
         </div>
       </div>
 
@@ -246,7 +249,7 @@
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
           ex ea commodo consequat.
           </p>
-          <p class="readme">Read more...</p>
+          <p id="placeholder-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
         </div>
       </div>
 
@@ -280,9 +283,9 @@
     </object>
 
     <div>
-      <ul>
-        <li><img src="img/phone-contact.svg" alt="Phone icon"/><p>+36/70/537-3697</p></li>
-        <li><img src="img/email-contact.svg" alt="Email icon"/><p>valzalan@gmail.com</p></li>
+      <ul id="contact-item-container">
+        <li><img src="img/phone-contact.svg" alt="Phone icon" id="contact-phone-img"/><p id="contact-phone">+36/70/537-3697</p></li>
+        <li><img src="img/email-contact.svg" alt="Email icon" id="contact-email-img"/><p id="contact-email">valzalan@gmail.com</p></li>
         <li><img src="img/facebook-contact.svg" alt="Facebook icon"/><p>Facebook</p></li>
         <li><img src="img/github-contact.svg" alt="Github icon"/><p>Github</p></li>
         <li><img src="img/linkedin-contact.svg" alt="Linkedin icon"/><p>Linkedin</p></li>
@@ -314,5 +317,6 @@
     </script>
   </footer>
   <script src="scripts\bundle.js"></script>
+  <script src="project_page\scripts\generate-page.js"></script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+nav {
+  position: fixed;
+  height: 100vh;
+  z-index: 10;
+
+  #navBckgrLine:hover {
+    background-color: $accent-color;
+  }
+
+  #sectionName {
+    position: absolute;
+    left: 45px;
+    top: 46.5%;
+
+    @include robotoMono(300, 12px, $white);
+
+    letter-spacing: 1px;
+    writing-mode: tb-rl;
+
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    }
+  }
+
+  #navContainer {
+    height: 100vh;
+    width: 0vw;
+    display: none;
+    background-color: rgba($accent-color, .9);
+  }
+
+  ul {
+    display: none;
+    position: relative;
+    top: 18%;
+    left: 30%;
+  }
+
+  li {
+    margin-bottom: 0.7em;
+  }
+
+  a {
+    position: relative;
+    left: 20%;
+    @include roboto(500, 40px, $white);
+  }
+
+  td {
+      padding-right: 1em;
+  }
+
+  #sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 45px;
+
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    }
+
+    &:hover {
+      background-color: rgba($accent-color, .85);
+      cursor: pointer;
+    }
+
+    .line {
+      position: relative;
+      left: 0;
+      height: 100%;
+    }
+
+    #menu {
+      float: left;
+    }
+
+    #menu-icon {
+      width: 45px;
+      height: 100vh;
+      z-index: 20;
+    }
+  }
+
+  td, li {
+    @include roboto(400, 20px, $white);
+  }
+}

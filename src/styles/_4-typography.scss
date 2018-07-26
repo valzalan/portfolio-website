@@ -106,8 +106,9 @@ nav {
   }
 
   p {
-    @include raleway(200, 16px, $primary-color);
-
+    @include openSans(400, 16px, $primary-color);
+    letter-spacing: 1px;
+    line-height: 1.5em;
     @media screen and (max-width: $screen-s) {
       font-size: 13px;
     }
@@ -169,7 +170,9 @@ nav {
   }
 
   p {
-    @include raleway(200, 16px, $white);
+    @include openSans(400, 14px, $white);
+    letter-spacing: 1px;
+    line-height: 1.5em;
 
     @media screen and (max-width: $screen-s) {
       font-size: 13px;
@@ -192,6 +195,9 @@ nav {
 
   p {
     @include raleway(200, 16px, $primary-color);
+    @media screen and (max-width: $screen-m) {
+      font-size: 12px;
+    }
   }
 
   h2 {

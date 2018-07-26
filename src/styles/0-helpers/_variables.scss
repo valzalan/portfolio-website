@@ -17,14 +17,6 @@ $screen-s: 550px;
 
 //Prototypes
 
-%line {
-  content: "";
-  opacity: 0.1;
-  width: 1px;
-  height: 100%;
-  position: absolute;
-}
-
 %right-sweep-animation{
   position: relative;
   transform: translateZ(0);

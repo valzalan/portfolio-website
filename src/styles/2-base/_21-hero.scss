@@ -1,0 +1,32 @@
+#hero{
+
+  #contact-button {
+    border: $accent-color 6px solid;
+    @extend %middle-out-sweep-animation;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  #scroll {
+    transform: rotate(90deg);
+  }
+
+  .heroContact:hover {
+      cursor: pointer;
+      color: $accent-color;
+  }
+
+  .icon {
+    fill: red;
+  }
+
+  #hPhone {
+    //TODO Auto call?
+  }
+
+  #hEmail {
+    //TODO Auto email?
+  }
+}

@@ -1,0 +1,32 @@
+#projects {
+
+  .image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .img-background {
+    background-color: hsl(206,9%,16.5%);
+    cursor: pointer;
+    @extend %right-sweep-animation;
+  }
+
+  .readme {
+    border: 3px solid $accent-color;
+    cursor: pointer;
+    @extend %middle-out-sweep-animation;
+  }
+
+  #sudoku {
+    background-image: url("../img/sudoku-placeholder.png");
+  }
+
+  #grandsight {
+    background-image: url("../img/grandsight-placeholder.png");
+  }
+
+  #placeholder {
+    background-image: url("../img/placeholder.jpg");
+  }
+}

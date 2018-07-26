@@ -1,0 +1,43 @@
+#contact {
+
+  input, button, textarea {
+    border: none;
+    border-bottom: 2px solid $gray;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  #submit {
+    transition: background-color 0.3s ease;
+  }
+
+  #button-container:hover > #submit {
+    background-color: rgba(0,0,0,0);
+    color: $white;
+    cursor: pointer;
+    border-color: $primary-color;
+  }
+
+  #button-container:hover {
+
+    &::after {
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+
+  #button-container::after {
+    content: "";
+    display: block;
+    position: relative;
+    top: -40px;
+    height: 37px;
+    width: 0;
+    z-index: -1;
+    border-bottom: 3px solid $primary-color;
+    background-color: $accent-color;
+    transition: width 0.3s ease;
+  }
+}

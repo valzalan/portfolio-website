@@ -4,3 +4,6 @@ ToDo.txt
 /.sass-cache
 /mockup
 /prototype
+/build/project_page
+build/img/svg-defs.svg
+src/project_pages/

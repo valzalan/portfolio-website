@@ -14,14 +14,14 @@
   }
 
   .heroContact:hover {
-      cursor: pointer;
-      color: $accent-color;
+    cursor: pointer;
+    color: $accent-color;
   }
-
-  .icon {
-    fill: red;
+/*
+  .icon:hover path{
+    fill: $accent-color;
   }
-
+*/
   #hPhone {
     //TODO Auto call?
   }

@@ -40,4 +40,14 @@
     background-color: $accent-color;
     transition: width 0.3s ease;
   }
+  #contact-item-container {
+    li:hover {
+      cursor: pointer;
+
+      & p, svg path {
+        color: $accent-color;
+        fill: $accent-color;
+      }
+    }
+  }
 }

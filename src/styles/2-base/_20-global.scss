@@ -13,3 +13,11 @@ section {
   z-index: -1;
   cursor: default;
 }
+
+.svg:hover {
+  cursor: pointer;
+
+  & path {
+    fill: $accent-color;
+  }
+}

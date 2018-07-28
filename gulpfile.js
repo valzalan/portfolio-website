@@ -50,7 +50,8 @@ gulp.task( "sass", function() {
     })
       .on( "error", sass.logError ) )
     .pipe( sourcemaps.write( "./" ) )
-    .pipe( gulp.dest( "./build/styles/" ) );
+    .pipe( gulp.dest( "./build/styles/" ) )
+    .pipe( gulp.dest( "../valzalan.github.io/styles/" ) );
 });
 
 gulp.task( "watch", [ "sass", "bundle-js", "uglify-page-generator" ], function() {

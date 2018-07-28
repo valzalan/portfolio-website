@@ -9,7 +9,6 @@ const gulp = require( "gulp" ),
       sass = require( "gulp-sass" ),
       log = require( "gulplog" );
 
-
 gulp.task( "bundle-js", function() {
   var b = browserify( {
     entries: "./src/scripts/main.js",

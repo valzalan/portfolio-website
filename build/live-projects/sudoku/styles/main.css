@@ -1,0 +1,99 @@
+/*                    Created & maintained by Zalán Valkó
+                         Last modification: 2018.03.19
+*/
+
+@charset "UTF-8";
+
+body{
+  background-color: #FEFFFF /*#F5F5F5*/;
+}
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+  color: #FF533D;
+  text-align: center;
+  font-size: 40px;
+}
+
+table{
+  border-radius: 3px;
+  border: solid #6B7A8F 2px;
+  padding: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+tr{
+  border-radius: 3px;
+}
+
+td{
+  border-radius: 3px;
+  border: solid #6B7A8F 1px;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  background-color: #E1E5EE;
+  text-align: center;
+  vertical-align: middle;
+}
+
+td:hover{
+  background-color: #c2c7d6;
+}
+
+.divider{
+  background-color: #FEFFFF;
+  border: none;
+  margin: 0px;
+  padding: 2px;
+  height: 4px;
+  width: 4px;
+}
+
+.divider:hover{
+  background-color: #FEFFFF;
+}
+
+#button_container{
+  border: none;
+  background-color: none;
+  margin-top: 30px;
+}
+
+input{
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+	color: black;
+}
+
+.buttonCell{
+  border: none;
+  background-color: #FEFFFF;
+}
+
+.buttonCell:hover{
+  background-color: #FEFFFF;
+}
+
+.box_border{
+  border-bottom: solid #A9A9A9 2px;
+}
+
+button{
+  background-color: #FF533D;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 16px;
+  color: #FEFFFF;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button:hover{
+  background-color: #9B3123;
+}

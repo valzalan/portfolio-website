@@ -26,6 +26,7 @@
     "watchify": "^3.11.0"
   },
   "dependencies": {
+    "inline-svg": "^2.2.3",
     "jquery": "^3.3.1"
   }
 }

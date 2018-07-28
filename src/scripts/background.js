@@ -1,13 +1,13 @@
 
 const $ = require( "jquery" );
 
-const switchColors = require( "./switchcolors.js" );
-const changeVis = require( "./changeVis.js" );
+const switchColors = require( "./switch-colors.js" ),
+      changeVis = require( "./change-vis.js" );
 
 module.exports = function( posY, breakPoints ) {
 
-  const primaryColor = "rgb(14, 11, 22)";       //TODO Maybe implement a hex converter??
-  const secondaryColor = "rgb(242, 242, 242)";
+  const primaryColor = "rgb(14, 11, 22)",       //TODO Maybe implement a hex converter??
+        secondaryColor = "rgb(242, 242, 242)";
 
   if( posY <= breakPoints[ 0 ] ) {
 

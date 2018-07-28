@@ -1,13 +1,21 @@
 
 const $ = require( "jquery" );
+const inlineSVG = require( "inline-svg" );
 
 $( document ).ready( function() {
 
+  inlineSVG.init( {
+    svgSelector: 'img.svg'
+  }, function() {
+  console.log( 'All SVGs inlined' );
+});
+
+
   //------      Own modules      ------
 
-  const background = require( "./background.js" );
-  const showNav = require( "./nav.js" );
-  const navscroll = require( "./navscroll.js" );
+  const background = require( "./background.js" ),
+        showNav = require( "./nav.js" ),
+        navscroll = require( "./nav-scroll.js" );
 
 
   //------      Hide everything except hero area      ------
@@ -33,6 +41,7 @@ $( document ).ready( function() {
   $( window ).on( "resize load" , function() {
 
     breakPoints = updateBrPoints();
+
   });
 
   $( window ).on( "scroll", function() {
@@ -57,22 +66,26 @@ $( document ).ready( function() {
 
   function updateBrPoints() {
 
-    let winHeight = $( window ).height();
+    let winHeight = $( window ).height(),
 
-    let marginHeights = 0, contentHeight;
+        marginHeights = 0,
 
-    let breakPoints = [];
+        contentHeight,
 
-    let sections = [ "#hero", "#about", "#skills", "#projects" ];
+        breakPoints = [],
 
-    for( let i = 0; i < 4; i++ ) {
+        sections = [ "#hero", "#about", "#skills", "#projects" ];
+
+    for( let i = 0; i < sections.length; i++ ) {
 
       if( i != 0 ) {
 
         marginHeights += $( sections[ i - 1 ] ).outerHeight( true );
+
       }
 
       contentHeight = $( sections[ i ] ).outerHeight();
+
       breakPoints.push( ( marginHeights + contentHeight ) - winHeight * 0.3 );
     }
 

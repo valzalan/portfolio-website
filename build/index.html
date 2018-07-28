@@ -21,7 +21,7 @@
 
     <div id="sidebar">
       <div id="menu">
-        <img id="menu-icon" src="img/menu.svg"/>
+        <img class="svg" id="menu-icon" src="img/menu.svg"/>
       </div>
       <div class="line"></div>
     </div>
@@ -82,15 +82,38 @@
         <div class="row4">
           <div class="col1 heroContact">Resumé</div>
           <div class="col2">
-            <img id="scroll" src="img/scroll.svg" alt="scroll"/>
+            <svg width="30px" height="30px" viewBox="0 0 42 42" id="scroll">
+              <use xlink:href="img/svg-defs.svg#scroll"></use>
+            </svg>
+            <!--<object type="image/svg+xml" data="img/scroll.svg" id="scroll">
+              scroll
+            </object>-->
           </div>
           <div class ="col3">
 
             <table>
               <tr>
-                <td><img class="icon" src="img/facebook-logo.svg" alt="facebook"/></td>
-                <td><img class="icon" src="img/github-logo.svg" alt="github"/></td>
-                <td><img class="icon" src="img/linkedin-logo.svg" alt="linkedin"/></td>
+                <td>
+                  <img class="icon svg" src="img/facebook-logo.svg" alt="Facebook" onclick="window.open('https://www.facebook.com/zalan.valko', '_blank');"/>
+                  <!--<svg width="35px" height="35px" viewBox="0 0 49.652 49.652" class="icon">
+                    <use xlink:href="img/svg-defs.svg#facebook-logo"></use>
+                  </svg>-->
+                  <!--<object type="image/svg+xml" data="img/facebook-logo.svg" class="icon">Facebook</object>-->
+                </td>
+                <td>
+                  <img class="icon svg" src="img/github-logo.svg" alt="Github" onclick="window.open('https://github.com/valzalan', '_blank');"/>
+                  <!--<svg width="35px" height="35px" viewBox="0 0 438.549 438.549" class="icon">
+                    <use xlink:href="img/svg-defs.svg#github-logo"></use>
+                  </svg>-->
+                  <!--<object type="image/svg+xml" data="img/github-logo.svg" class="icon">Github</object>-->
+                </td>
+                <td>
+                  <img class="icon svg" src="img/linkedin-logo.svg" alt="Linkedin" onclick="window.open('https://www.linkedin.com/in/zalanvalko/', '_blank');"/>
+                  <!--<svg width="35px" height="35px" viewBox="0 0 97.75 97.75" class="icon">
+                    <use xlink:href="img/svg-defs.svg#linkedin-logo"></use>
+                  </svg>-->
+                  <!--<object type="image/svg+xml" data="img/linkedin-logo.svg" class="icon">LinkedIn</object>-->
+                </td>
               </tr>
             </table>
 
@@ -106,7 +129,7 @@
       <h2>Who am I?</h2>
 
       <div>
-        <img id="profile" src="img/profile3.png" alt="It's me!"/>
+        <img src="img/profile3.png" id="profile" alt="It's me!"/>
         <h3>Zalán Valkó</h3>
       </div>
 
@@ -211,14 +234,13 @@
 
       <div class="left-container">
         <div class="img-background">
-          <div class="image" id="sudoku" onclick="location.href='sudoku.html';"></div>
+          <div class="image" id="sudoku" onclick="window.open('live-projects/sudoku/sudoku.html', '_blank');"></div>
         </div>
         <div class="text-container">
           <h3>A Simple Sudoku App</h3>
           <p>An intuitive sudoku game app. Made entirely with pure HTML, CSS and
-            JavaScript. My primary goal with this app was to implement an algorithm to
-            solve any sudoku grids. The grid generator function was added as an
-            afterthought.
+            JavaScript. My primary goal with this app was to implement a recursive algorithm to
+            solve any sudoku grids. The grid generator function was added later in the process.
           </p>
           <p id="sudoku-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
         </div>
@@ -276,19 +298,52 @@
       </form>
     </div>
 
-    <object id="contact-line">
-      <svg width="2px" height="350px">
+      <svg width="2px" height="350px" id="contact-line">
         <line x1="0" y1="0" x2="0" y2="350" stroke="#222629" stroke-width="2"/>
       </svg>
-    </object>
 
     <div>
       <ul id="contact-item-container">
-        <li><img src="img/phone-contact.svg" alt="Phone icon" id="contact-phone-img"/><p id="contact-phone">+36/70/537-3697</p></li>
-        <li><img src="img/email-contact.svg" alt="Email icon" id="contact-email-img"/><p id="contact-email">valzalan@gmail.com</p></li>
-        <li><img src="img/facebook-contact.svg" alt="Facebook icon"/><p>Facebook</p></li>
-        <li><img src="img/github-contact.svg" alt="Github icon"/><p>Github</p></li>
-        <li><img src="img/linkedin-contact.svg" alt="Linkedin icon"/><p>Linkedin</p></li>
+        <li>
+          <img class="svg" id="contact-phone-img" src="img/phone-contact.svg" alt="Phone icon"/>
+          <!--<svg width="30px" height="30px" viewBox="0 0 35 35" id="contact-phone-img">
+            <use xlink:href="img/svg-defs.svg#phone-contact"></use>
+          </svg>-->
+          <!--<object type="image/svg+xml" data="img/phone-contact.svg" id="contact-phone-img"></object>-->
+          <p id="contact-phone">+36/70/537-3697</p>
+        </li>
+        <li>
+          <img class="svg" id="contact-email-img" src="img/email-contact.svg" alt="Email icon"/>
+          <!--<svg width="30px" height="30px" viewBox="0 0 485.411 485.411" id="contact-email-img">
+            <use xlink:href="img/svg-defs.svg#email-contact"></use>
+          </svg>-->
+          <!--<object type="image/svg+xml" data="img/email-contact.svg" id="contact-email-img"></object>-->
+          <p id="contact-email">valzalan@gmail.com</p>
+        </li>
+        <li onclick="window.open('https://www.facebook.com/zalan.valko', '_blank');">
+          <img class="svg" src="img/facebook-contact.svg" alt="Facebook icon"/>
+          <!--<svg width="30px" height="30px" viewBox="0 0 288.861 288.861">
+            <use xlink:href="img/svg-defs.svg#facebook-contact"></use>
+          </svg>-->
+          <!--<object type="image/svg+xml" data="img/facebook-contact.svg"></object>-->
+          <p>Facebook</p>
+        </li>
+        <li onclick="window.open('https://github.com/valzalan', '_blank');">
+          <img class="svg" src="img/github-contact.svg" alt="Github icon"/>
+          <!--<svg width="30px" height="30px" viewBox="0 0 55.11 55.11">
+            <use xlink:href="img/svg-defs.svg#github-contact"></use>
+          </svg>-->
+          <!--<object type="image/svg+xml" data="img/github-contact.svg"></object>-->
+          <p>Github</p>
+        </li>
+        <li onclick="window.open('https://www.linkedin.com/in/zalanvalko/', '_blank');">
+          <img class="svg" src="img/linkedin-contact.svg" alt="LinkedIn icon"/>
+          <!--<svg width="30px" height="30px" viewBox="0 0 288.693 288.693">
+            <use xlink:href="img/svg-defs.svg#linkedin-contact"></use>
+          </svg>-->
+          <!--<object type="image/svg+xml" data="img/linkedin-contact.svg"></object>-->
+          <p>Linkedin</p>
+        </li>
       </ul>
     </div>
 
@@ -317,6 +372,6 @@
     </script>
   </footer>
   <script src="scripts\bundle.js"></script>
-  <script src="project_page\scripts\generate-page.js"></script>
+  <!--<script src="project_page\scripts\generate-page.js"></script>-->
 </body>
 </html>

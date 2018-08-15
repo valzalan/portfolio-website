@@ -9,3 +9,4 @@ build/img/svg-defs.svg
 src/project_pages/
 build/server.js
 awskey.pem
+build/lang-hun.json

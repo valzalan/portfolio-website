@@ -7,6 +7,8 @@ module.exports = function() {
 
     $( "#sectionName" ).css( "color", "white" );
 
+    $("#nav-cross").show();
+
     $( "#navContainer" ).show().animate({
         width: "80vw"
       }, 300, function() {
@@ -16,7 +18,7 @@ module.exports = function() {
 
   } else {
 
-    $( "#navContainer > ul" ).hide();
+    $( "#navContainer > ul, #nav-cross" ).hide();
 
     $( "#navContainer" ).animate({
         width: "1vw"

@@ -1,0 +1,276 @@
+@import "../../styles/0-helpers/_reset";
+@import "../../styles/0-helpers/_variables";
+
+@font-face {
+  font-family: "gothamBold";
+  src: url("fonts/GothamBold.otf");
+}
+
+@font-face {
+  font-family: "gothamBook";
+  src: url("fonts/GothamBookRegular.otf");
+}
+
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  background-color: #2a2a2b;
+}
+
+#button-container {
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5em;
+  height: 12vh;
+  width: 100%;
+  background-color: rgba($primary-color, 1);
+  border-bottom: 1px solid $accent-color;
+  z-index: 2;
+  box-shadow: 0px 1px 15px rgba(black, .5);
+
+  div:nth-of-type(1) {
+    justify-self: end;
+    font-size: 13px;
+    padding-top: 0.3em;
+  }
+
+  div:nth-of-type(2) {
+    justify-self: start;
+    line-height: 40px;
+  }
+}
+
+#home, #cross {
+  width: 30px;
+  justify-self: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+.button {
+  width: 160px;
+  height: 40px;
+  border: 1px solid rgba($accent-color, .8);
+  border-radius: 1px;
+  //background-color: rgba($accent-color, .1);
+  font-family: "gothamBook";
+  font-weight: 100;
+  font-size: 16px;
+  color: white;
+  letter-spacing: 1px;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  transition: background-color .1s;
+
+  &:hover {
+    background-color: rgba($accent-color, .2);
+  }
+}
+
+#download-options {
+  display: none;
+}
+
+h2 {
+  font-family: "gothamBook";
+  font-size: 22px;
+  color: white;
+  font-weight: 100;
+  margin-bottom: 0.5em;
+}
+
+h3, span {
+  font-family: "gothamBold";
+  font-size: 17px;
+  color: white;
+  margin-bottom: 1em;
+}
+
+p {
+  margin-bottom: 3em;
+  line-height: 1.4em;
+}
+
+p, li {
+  font-family: "gothamBook";
+  font-size: 14px;
+  color: #6b6e70;
+}
+
+li {
+  margin-bottom: 1em;
+}
+
+.list-title {
+  font-family: "gothamBook";
+  font-size: 18px;
+  color: white;
+  margin-bottom: 1em;
+ }
+
+li:last-of-type {
+  margin-bottom: 2em;
+}
+
+#mid-line {
+  position: absolute;
+  background-color: #6b6e70;
+  width: 2px;
+  height: 195%;
+  left: 50%;
+  padding-right: 2px;
+  z-index: 0;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 2em;
+  padding: 40px;
+  padding-top: 14vh;
+  padding-bottom: 0;
+
+  .col {
+    display: grid;
+  }
+
+  div:nth-of-type(1) {
+    grid-template: 1fr 1fr / 30px auto;
+    grid-auto-rows: 30px;
+  }
+
+  div:nth-of-type(2) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  div:nth-of-type(3) {
+    display: block;
+    text-align: right;
+    p {
+      font-size: 15px;
+      color: white;
+      letter-spacing: 1px;
+    }
+  }
+
+  span {
+    font-family: "gothamBold";
+    font-size: 32px;
+    color: $accent-color;
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+  }
+}
+
+.contact-icon {
+  width: 30px;
+}
+
+.contact {
+  font-family: "gothamBook";
+  font-size: 14px;
+  color: #6b6e70;
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+#personal-data {
+  p {
+    margin-bottom: 1em;
+  }
+}
+
+#profile {
+  width: 120px;
+  border-radius: 120px;
+  border: 7px solid #6b6e70;
+  justify-self: center;
+}
+
+#main-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 70px;
+  padding: 0 170px;
+  margin-bottom: 50px;
+}
+
+#role-title {
+  font-family: "gothamBold", sans-serif;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+#personal-side {
+  text-align: right;
+}
+
+.highlighted {
+  display: inline-block;
+  color: $accent-color;
+  margin-left: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+.alt-title {
+  font-family: "gothamBook";
+  font-size: 16px;
+  color: white;
+  margin-bottom: 1em;
+  padding-left: 3.8em;
+}
+
+#footer-bar {
+  height: 40px;
+  width: 100%;
+  background-color: $accent-color;
+}
+
+//    Skill level bars
+
+.bar {
+  height: .7em;
+  width: 360px;
+  background-color: #313233;
+}
+
+.bar::before {
+  content: "";
+  position: absolute;
+  height: .7em;
+  background-color: $accent-color;
+}
+
+#bar-js::before {
+  width: 240px;
+}
+
+#bar-html::before {
+  width: 320px;
+}
+
+#bar-css::before {
+  width: 290px;
+}
+
+#bar-jquery::before {
+  width: 190px;
+}
+
+#bar-sass::before {
+  width: 320px;
+}
+
+#bar-nodejs::before {
+  width: 50px;
+}
+
+#bar-linux::before {
+  width: 80px;
+}

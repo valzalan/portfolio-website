@@ -96,4 +96,9 @@ button{
 
 button:hover{
   background-color: #9B3123;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }

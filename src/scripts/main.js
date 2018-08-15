@@ -4,17 +4,16 @@ const inlineSVG = require( "inline-svg" );
 
 $( document ).ready( function() {
 
-  inlineSVG.init( {
-    svgSelector: 'img.svg'
-  }, function() {
-  console.log( 'All SVGs inlined' );
-});
+inlineSVG.init( {
+  svgSelector: 'img.svg'
+}, function() {   // Everything starts as a callback of inlineSVG
 
+  console.log( 'All SVGs inlined' );
 
   //------      Own modules      ------
 
   const background = require( "./background.js" ),
-        showNav = require( "./nav.js" ),
+        toggleNav = require( "./nav.js" ),
         navscroll = require( "./nav-scroll.js" );
 
 
@@ -25,11 +24,24 @@ $( document ).ready( function() {
 
   //------      Event handlers      ------
 
-  $( "#sidebar" ).click( function() {
+  $( "#sidebar, #nav-cross" ).click( function() {
 
-    showNav();
+    toggleNav();
   });
 
+  $( "#project-dropdown-icon" ).click(function() {
+
+    if( $( ".subitem" ).css( "display" ) == "list-item" ) {
+
+      $( this ).css( "transform", "rotateZ(0deg)" );
+
+    } else {
+
+      $( this ).css( "transform", "rotateZ(45deg)" );
+    }
+
+    $( ".subitem" ).toggle();
+  });
 
   $( "a, #contact-button" ).click( function( event ) {
 
@@ -91,4 +103,6 @@ $( document ).ready( function() {
 
     return breakPoints;
   }
+
+});
 });

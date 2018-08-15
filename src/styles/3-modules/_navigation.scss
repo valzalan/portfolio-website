@@ -33,11 +33,20 @@ nav {
     display: none;
     position: relative;
     top: 18%;
-    left: 30%;
+    left: 25%;
   }
 
   li {
     margin-bottom: 0.7em;
+    cursor: pointer;
+  }
+
+  .subitem {
+    display: none;
+    position: relative;
+    left: 25%;
+    //cursor: pointer;
+    animation: scaleIn 0.5s ease;
   }
 
   a {
@@ -54,6 +63,7 @@ nav {
     position: fixed;
     height: 100vh;
     width: 45px;
+    transition: background-color 0.2s ease;
 
     @media screen and (max-width: $screen-m) {
       display: none;
@@ -62,6 +72,11 @@ nav {
     &:hover {
       background-color: rgba($accent-color, .85);
       cursor: pointer;
+
+      //#menu-icon svg
+      & rect {
+        fill: white !important;
+      }
     }
 
     .line {
@@ -81,7 +96,59 @@ nav {
     }
   }
 
+  #project-dropdown-icon {
+    width: 30px;
+    position: relative;
+    left: 18vw;
+    transition: transform .4s ease-in-out;
+  }
+
+  #nav-cross {
+    position: absolute;
+    width: 40px;
+    bottom: 50%;
+    left: 90%;
+    animation: rotateIn 0.7s ease;
+
+    &:hover {
+      animation: rotateOut 0.7s ease;
+    }
+
+    @keyframes rotateIn {
+      0% {
+        opacity: 0;
+        transform: rotateZ(0deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: rotateZ(180deg);
+      }
+    }
+
+    @keyframes rotateOut {
+      0% {
+        transform: rotateZ(180deg);
+      }
+
+      100% {
+        transform: rotateZ(0deg);
+      }
+    }
+  }
+
   td, li {
     @include roboto(400, 20px, $white);
+    animation: scaleIn 0.2s ease;
+
+    @keyframes scaleIn {
+      0% {
+        transform: scaleY(0);
+      }
+
+      100% {
+        transform: scaleY(1);
+      }
+    }
   }
 }

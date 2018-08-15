@@ -48,7 +48,7 @@ nav {
   .row1 {
     text-align: right !important;
 
-    p {
+    span {
       @include roboto(100, 14px, $white);
     }
   }
@@ -161,7 +161,7 @@ nav {
   }
 
   h3 {
-    @include roboto(900, 30px, $white);
+    @include roboto(900, 24px, $white);
 
     @media screen and (max-width: $screen-s) {
       font-size: 20px;
@@ -170,7 +170,7 @@ nav {
   }
 
   p {
-    @include openSans(400, 14px, $white);
+    @include openSans(400, 13px, $white);
     letter-spacing: 1px;
     line-height: 1.5em;
 

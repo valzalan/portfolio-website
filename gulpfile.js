@@ -46,8 +46,7 @@ gulp.task( "sass", function() {
     .pipe( sourcemaps.init() )
     .pipe( sass( {
       outputStyle: "compressed"
-    })
-      .on( "error", sass.logError ) )
+    }).on( "error", sass.logError ) )
     .pipe( sourcemaps.write( "./" ) )
     .pipe( gulp.dest( "./build/styles/" ) )
     .pipe( gulp.dest( "../valzalan.github.io/styles/" ) );
@@ -57,8 +56,24 @@ gulp.task( "watch", [ "sass", "bundle-js", "uglify-page-generator" ], function()
 
   gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
   gulp.watch( "./src/styles/**/*.scss", [ "sass" ] );
+  gulp.watch( "./src/resume/styles/**/*.scss", [ "resume-sass" ] );
   gulp.watch( "./src/project_pages/scripts/generate-page.js", [ "uglify-page-generator" ] );
 });
+
+
+//              Resume page
+
+gulp.task( "resume-sass", function() {
+    return gulp.src( "./src/resume/styles/resume.scss" )
+    .pipe( sourcemaps.init() )
+    .pipe( sass( {
+      outputStyle: "compressed"
+    }).on( "error", sass.logError ) )
+    .pipe( sourcemaps.write( "./" ) )
+    .pipe( gulp.dest( "./build/resume/" ) )
+    .pipe( gulp.dest( "../valzalan.github.io/styles/" ) );
+});
+
 
 //              For prototyping
 

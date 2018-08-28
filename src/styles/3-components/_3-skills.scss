@@ -1,0 +1,80 @@
+
+#skills {
+
+  h2 {
+    grid-column: 4 / 7;
+    margin-bottom: 1.5em;
+  }
+
+  .big-title {
+    top: 0.1em;
+  }
+
+  div:nth-child(even) {
+    grid-column: 2 / 4;
+    margin-bottom: 3em;
+  }
+
+  div:nth-child(odd) {
+    grid-column: 4 / 6;
+  }
+
+  p {
+    padding-left: 1em;
+  }
+
+  li {
+    padding: 0.5em;
+    padding-left: 0;
+    cursor: default;
+  }
+
+  .skill {
+    cursor: pointer;
+
+    &:hover > p {
+      color: $accent-color;
+    }
+
+    &:hover::before {
+      width: 5px;
+    }
+  }
+
+  .skill-bar {
+    display: none;
+  }
+
+  .skill-bar-table {
+    margin-left: 1em;
+    width: 24rem;
+    height: 0.5em;
+
+    tr::before {
+      content: "";
+      position: absolute;
+      height: 0.5em;
+      width: 0;
+      background-color: $accent-color;
+      transition: width 0.3s ease-in-out;
+    }
+
+    @include skillBarWidths();
+
+    td {
+      border: 1px rgba($gray, 0.5) solid;
+      border-bottom: none;
+      border-top: none;
+      margin: 0 1px;
+    }
+  }
+
+  .skill::before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 1.5em;
+    background-color: $accent-color;
+    transition: width 0.2s ease;
+  }
+}

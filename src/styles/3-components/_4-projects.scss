@@ -1,0 +1,115 @@
+
+#projects {
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  padding: 0 10vw;
+
+  @media screen and(max-width: 1100px){
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-container {
+    position: relative;
+    border: 1px rgba($white, .2) solid;
+    box-shadow: 3px 5px 10px rgba(black, .5);
+  }
+
+  .img-background {
+    height: 220px;
+    width: 90%;
+    margin: 1em auto;
+    background-color: hsl(206,9%,16.5%);
+    cursor: pointer;
+    @extend %right-sweep-animation;
+  }
+
+  .img-background::after {
+    content: "live_demo";
+    display: block;
+    position: absolute;
+    right: 0.5em;
+    top: 30%;
+    writing-mode: tb-rl;
+    @include robotoMono(200, 14px, $white);
+  }
+
+  .image {
+    width: 85%;
+    height: 200px;
+    position: relative;
+    left: 3%;
+    top: 3%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 2px 3px 8px rgba(black, .3);
+  }
+
+  h2 {
+    grid-column: 1 / 4;
+    margin-bottom: 3em;
+  }
+
+  h3 {
+    padding: 1em;
+    text-align: center;
+  }
+
+  p {
+    padding: 1.5em;
+    margin-bottom: 8em;
+    text-align: center;
+  }
+
+  .projects-button-container {
+    position: absolute;
+    bottom: 5%;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+
+    div:first-of-type {
+      justify-self: end;
+    }
+  }
+
+  .button {
+    height: 3em;
+    width: 8em;
+    line-height: 2.5em;
+    border: 3px solid $accent-color;
+    cursor: pointer;
+
+    @extend %middle-out-sweep-animation;
+  }
+
+  .github-icon {
+    position: absolute;
+    width: 28px;
+    bottom: calc(50% - 14px);
+    left: 15px;
+  }
+
+  .button-text {
+    display: inline-block;
+    margin-left: 2em;
+  }
+
+  #sudoku {
+    background-image: url("../img/sudoku.png");
+  }
+
+  #grandsight {
+    background-image: url("../img/grandsight-placeholder.png");
+  }
+
+  #todolist {
+    background-image: url("../img/todolist.png");
+  }
+
+  #placeholder {
+    background-image: url("../img/placeholder.jpg");
+  }
+}

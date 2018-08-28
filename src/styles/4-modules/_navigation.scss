@@ -1,0 +1,154 @@
+nav {
+  position: fixed;
+  height: 100vh;
+  z-index: 10;
+
+  #navBckgrLine:hover {
+    background-color: $accent-color;
+  }
+
+  #sectionName {
+    position: absolute;
+    left: 45px;
+    top: 46.5%;
+
+    @include robotoMono(300, 12px, $white);
+
+    letter-spacing: 1px;
+    writing-mode: tb-rl;
+
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    }
+  }
+
+  #navContainer {
+    height: 100vh;
+    width: 0vw;
+    display: none;
+    background-color: rgba($accent-color, .9);
+  }
+
+  ul {
+    display: none;
+    position: relative;
+    top: 18%;
+    left: 25%;
+  }
+
+  li {
+    margin-bottom: 0.7em;
+    cursor: pointer;
+  }
+
+  .subitem {
+    display: none;
+    position: relative;
+    left: 25%;
+    //cursor: pointer;
+    animation: scaleIn 0.5s ease;
+  }
+
+  a {
+    position: relative;
+    left: 20%;
+    @include roboto(500, 40px, $white);
+  }
+
+  td {
+      padding-right: 1em;
+  }
+
+  #sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 45px;
+    transition: background-color 0.2s ease;
+
+    @media screen and (max-width: $screen-m) {
+      display: none;
+    }
+
+    &:hover {
+      background-color: rgba($accent-color, .85);
+      cursor: pointer;
+
+      //#menu-icon svg
+      & rect {
+        fill: white !important;
+      }
+    }
+
+    .line {
+      position: relative;
+      left: 0;
+      height: 100%;
+    }
+
+    #menu {
+      float: left;
+    }
+
+    #menu-icon {
+      width: 45px;
+      height: 100vh;
+      z-index: 20;
+    }
+  }
+
+  #project-dropdown-icon {
+    width: 30px;
+    position: relative;
+    left: 18vw;
+    transition: transform .4s ease-in-out;
+  }
+
+  #nav-cross {
+    position: absolute;
+    width: 40px;
+    bottom: 50%;
+    left: 90%;
+    animation: rotateIn 0.7s ease;
+
+    &:hover {
+      animation: rotateOut 0.7s ease;
+    }
+
+    @keyframes rotateIn {
+      0% {
+        opacity: 0;
+        transform: rotateZ(0deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: rotateZ(180deg);
+      }
+    }
+
+    @keyframes rotateOut {
+      0% {
+        transform: rotateZ(180deg);
+      }
+
+      100% {
+        transform: rotateZ(0deg);
+      }
+    }
+  }
+
+  td, li {
+    @include roboto(400, 20px, $white);
+    animation: scaleIn 0.2s ease;
+
+    @keyframes scaleIn {
+      0% {
+        transform: scaleY(0);
+      }
+
+      100% {
+        transform: scaleY(1);
+      }
+    }
+  }
+}

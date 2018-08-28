@@ -1,11 +1,14 @@
+//------------------------//
+// Basic resets
+//========================//
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 100%;
-	vertical-align: baseline;
   text-decoration: none;
+  z-index: 0;
 }
 
 ul {
@@ -16,7 +19,7 @@ table {
   border-collapse: collapse;
 }
 
-input, textarea, button{
+input, textarea, button {
   outline: none;
 }
 

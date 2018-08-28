@@ -1,0 +1,47 @@
+//------------------------//
+// Global styles
+//========================//
+
+body {
+  background-color: $primary-color;
+  transition: background-color 0.3s ease;
+}
+
+.big-title {
+  position: absolute;
+  left: 20%;
+  cursor: default;
+  z-index: -10;
+}
+
+.svg:hover {
+  cursor: pointer;
+
+  & path {
+    fill: $accent-color;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  @media screen and (max-width: $screen-m) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media screen and (max-width: $screen-s) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.wrapper:not(.bckgrLines) {
+  @media screen and (max-width: $screen-m) {
+    display: block;
+  }
+}
+
+footer {
+  background-color: rgba($primary-color, .8);
+  height: 3em;
+}

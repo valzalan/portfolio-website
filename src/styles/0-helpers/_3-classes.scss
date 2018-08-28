@@ -1,24 +1,6 @@
-
-//Color definitions
-
-$primary-color: #0e0b16;       //rgb(14,11,22)    og: #222629;
-$secondary-color: #e7dfdd;     //rgb(231,223,221) og: #474b4f;
-$accent-color: #4717f6;        //rgb(71,23,246)   og: #ebff33;
-$white: #f2f2f2;
-$gray: #6b6e70;
-
-// For Resume page
-$p-color: #6b6e70;
-
-
-//Screen sizes
-
-$screen-l: 950px;
-$screen-m: 750px;
-$screen-s: 550px;
-
-
-//Prototypes
+//------------------------//
+// Animation classes
+//========================//
 
 %right-sweep-animation{
   position: relative;
@@ -29,9 +11,9 @@ $screen-s: 550px;
     content: "";
     position: absolute;
     z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
+    top:    0;
+    left:   0;
+    right:  0;
     bottom: 0;
     background: $accent-color;
     transform: scaleX(0);
@@ -45,6 +27,7 @@ $screen-s: 550px;
   }
 }
 
+
 %middle-out-sweep-animation{
   position: relative;
   transition: color 200ms;
@@ -55,10 +38,10 @@ $screen-s: 550px;
     content: "";
     position: absolute;
     z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top:     0;
+    left:    0;
+    right:   0;
+    bottom:  0;
     background-color: $accent-color;
     transform: scaleX(0);
     transform-origin: 50%;

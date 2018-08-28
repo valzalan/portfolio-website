@@ -63,53 +63,36 @@
     <div class="line"></div>
   </div>
 
-  <!--=================   Hero Area   =================-->
   <main>
+
+  <!--=================   Hero Area   =================-->
 
     <section id="hero" class="wrapper">
 
-        <div class="row1">
-          <span id="lang">eng</span>
-          <ul>
-            <li><span class="heroContact" id="hPhone" onclick="document.location.href = 'tel:+36705373697'">+36/70/537-3697</span></li>
-            <li><span class="heroContact" id="hEmail" onclick="document.location.href = 'mailto:valzalan@gmail.com'">valzalan@gmail.com</span></li>
-          </ul>
+      <div id="fixed-container">
+        <span id="lang">eng</span>
+        <ul>
+          <li><span class="heroContact" onclick="document.location.href = 'tel:+36705373697'">+36/70/537-3697</span></li>
+          <li><span class="heroContact" onclick="document.location.href = 'mailto:valzalan@gmail.com'">valzalan@gmail.com</span></li>
+        </ul>
+
+        <div class="heroContact" onclick="window.open('resume/resume.html');">Resumé</div>
+        <div>
+          <img class="icon svg" src="img/facebook-logo.svg" alt="Facebook" onclick="window.open('https://www.facebook.com/zalan.valko', '_blank');"/>
+          <img class="icon svg" src="img/github-logo.svg" alt="Github" onclick="window.open('https://github.com/valzalan', '_blank');"/>
+          <img class="icon svg" src="img/linkedin-logo.svg" alt="Linkedin" onclick="window.open('https://www.linkedin.com/in/zalanvalko/', '_blank');"/>
         </div>
+      </div>
 
-        <div class="row2">
-          <h1>Hi! I'm Zalán.<br>Tech enthusiast & aspiring<br>frontend developer.</h1>
-        </div>
+      <h1>Hi! I'm Zalán.<br/>Tech enthusiast & aspiring<br/>frontend developer.</h1>
 
-        <div class="row3">
-          <div id="contact-button">Contact me</div>
-          <p>or<br>scroll and discover more...</p>
-        </div>
+      <div id="contact-button">Contact me</div>
 
-        <div class="row4">
-          <div class="col1 heroContact" onclick="window.open('resume/resume.html');">Resumé</div>
-          <div class="col2">
-            <svg width="30px" height="30px" viewBox="0 0 42 42" id="scroll">
-              <use xlink:href="img/svg-defs.svg#scroll"></use>
-            </svg>
-          </div>
-          <div class ="col3">
+      <p>or<br/>scroll and discover more...</p>
 
-            <table>
-              <tr>
-                <td>
-                  <img class="icon svg" src="img/facebook-logo.svg" alt="Facebook" onclick="window.open('https://www.facebook.com/zalan.valko', '_blank');"/>
-                </td>
-                <td>
-                  <img class="icon svg" src="img/github-logo.svg" alt="Github" onclick="window.open('https://github.com/valzalan', '_blank');"/>
-                </td>
-                <td>
-                  <img class="icon svg" src="img/linkedin-logo.svg" alt="Linkedin" onclick="window.open('https://www.linkedin.com/in/zalanvalko/', '_blank');"/>
-                </td>
-              </tr>
-            </table>
-
-          </div>
-        </div>
+      <svg width="30px" height="30px" viewBox="0 0 42 42" id="scroll">
+        <rect y="20" width="42" height="2" fill="#FFFFFF"/>
+      </svg>
 
     </section>
 
@@ -120,7 +103,7 @@
       <h2>Who am I?</h2>
 
       <div>
-        <img src="img/profile3.png" id="profile" alt="It's me!"/>
+        <div id="profile"></div>
         <h3>Zalán Valkó</h3>
       </div>
 
@@ -135,7 +118,7 @@
               document.getElementById( "age" ).innerHTML = String( Math.abs( ageDate.getUTCFullYear() - 1970 ) );
 
             </script>
-          </span>years old Computer Science student based in Miskolc, Hungary.
+          </span>years old Computer Science student.
         </h3>
 
         <p>I've always loved building things. At first I picked up graphic design
@@ -154,7 +137,7 @@
         learning</strong> and <strong>automation.</strong> I believe AI will be
         one of the most consequencial events in the history of technology. I also
         have a deep love of astronomy, space travel, and electric cars.
-        <br>
+        <br/>
         <em>  - Go Elon!</em>
         </p>
       </div>
@@ -172,27 +155,85 @@
       <div>
         <h3>Languages</h3>
         <ul>
-          <li><p>JavaScript (ES6)</p></li>
-          <li><p>HTML5</p></li>
-          <li><p>CSS3</p></li>
+          <li class="skill" id="js"><p>JavaScript (ES6)</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
+          <li class="skill" id=html><p>HTML5</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
+          <li class="skill" id="css"><p>CSS3</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
         </ul>
       </div>
 
       <div>
         <h3>Frameworks and libraries</h3>
         <ul>
-          <li><p>jQuery</p></li>
-          <li><p>Sass</p></li>
+          <li class="skill" id="jquery"><p>jQuery</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
+          <li class="skill" id="sass"><p>Sass</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
+          <li class="skill" id="node"><p>NodeJS</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
         </ul>
       </div>
 
       <div>
         <h3>Tools & utilities</h3>
         <ul>
-          <li><p>npm</p></li>
-          <li><p>Gulp</p></li>
-          <li><p>Git</p></li>
-          <li><p>Browserify</p></li>
+          <li class="no-skill-bar"><p>npm</p></li>
+          <li class="no-skill-bar"><p>Gulp</p></li>
+          <li class="skill" id="git"><p>Git</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
+          <li class="no-skill-bar"><p>Browserify</p></li>
+          <li class="no-skill-bar"><p>Babel</p></li>
         </ul>
       </div>
 
@@ -208,8 +249,16 @@
       <div>
         <h3>Other and personal</h3>
         <ul>
-          <li><p>Basic Linux</p></li>
-          <li><p>Can pull 2 all-nighters in a row</p></li>
+          <li class="skill" id="linux"><p>Basic Linux</p></li>
+          <li class="skill-bar">
+            <table class="skill-bar-table">
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td></td><td></td><td></td>
+              </tr>
+            </table>
+          </li>
+          <li class="no-skill-bar"><p>Can pull 2 all-nighters in a row</p></li>
         </ul>
       </div>
 
@@ -227,56 +276,61 @@
         <div class="img-background">
           <div class="image" id="sudoku" onclick="window.open('live-projects/sudoku/sudoku.html', '_blank');"></div>
         </div>
-        <div class="text-container">
-          <h3>A Sudoku App</h3>
-          <p>An intuitive sudoku game app. Made entirely with pure HTML, CSS and
-            JavaScript. My primary goal with this app was to implement a recursive algorithm to
-            solve any sudoku grids. The grid generator function was added later in the process.
-          </p>
+        <h3>A Sudoku App</h3>
+        <p>An intuitive sudoku game app. Made entirely with pure HTML, CSS and
+        JavaScript. My primary goal with this app was to implement a recursive algorithm to
+        solve any sudoku grids. The grid generator function was added later in the process.
+        </p>
+        <div class="projects-button-container">
+          <div class="button" onclick="">Read more...</div>
+          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
         </div>
-        <p id="sudoku-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
       </div>
 
       <div class="project-container">
         <div class="img-background">
-          <div class="image" id="grandsight"></div>
+          <div class="image" id="portfolio-site"></div>
         </div>
-        <div class="text-container">
-          <h3>GrandSight webdesign site</h3>
-          <p>A clear, simplistic website design. It was originally built for a startup,
-            that me and my friend wanted to build, but it never actually got going. It was made
-            with plain HTML and CSS.
-          </p>
+        <h3>My portfolio website</h3>
+        <p>The site you're currently on (wooah...). It's the biggest website project I've made yet.
+        Made with HTML5, Sass using .scss and JavaScript with jQuery. For the build process,
+        I used Gulp with Browserify and several plugins, including Uglify and Babel.
+        For package management, I used npm.
+        </p>
+        <div class="projects-button-container">
+          <div class="button" onclick="">Read more...</div>
+          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
         </div>
-        <p id="grandsight-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
       </div>
 
       <div class="project-container">
         <div class="img-background">
           <div class="image" id="todolist" onclick="window.open('live-projects/todolist/todolist.html', '_blank');"></div>
         </div>
-        <div class="text-container">
-          <h3>To Do List</h3>
-          <p>A fairly simple to do list. Impressed, yea? You can find this in almost every junior dev's repos,
-          so I thought I might as well do my own iteration of it. Built with plain HTML, CSS and vanilla Javascript,
-          with utilizing the localStorage.“Do not go by my humble beginnings. Be wary of my enormous vision.”
-          </p>
+        <h3>To Do List</h3>
+        <p>A fairly simple to do list. Impressed, yea? You can find this in almost every junior dev's repos,
+        so I thought I might as well do my own iteration of it. Built with plain HTML, CSS and vanilla Javascript,
+        with utilizing the localStorage.“Do not go by my humble beginnings. Be wary of my enormous vision.”
+        </p>
+        <div class="projects-button-container">
+          <div class="button" onclick="">Read more...</div>
+          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
         </div>
-        <p id="todolist-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
       </div>
 
       <div class="project-container">
         <div class="img-background">
-          <div class="image" id="placeholder"></div>
+          <div class="image" id="Domin.io"></div>
         </div>
-        <div class="text-container">
-          <h3>To Do List</h3>
-          <p>A fairly simple to do list. Impressed, yea? You can find this in almost every junior dev's repos,
-          so I thought I might as well do my own iteration of it. Built with plain HTML, CSS and vanilla Javascript,
-          with utilizing the localStorage.“Do not go by my humble beginnings. Be wary of my enormous vision.”
-          </p>
+        <h3>Domin.io</h3>
+        <p>An ambitious browser arena game project, still in early development.
+        For graphics and rendering, I'm using Pixi.js, client-server communication
+        is done with Websockets. The build process is run by webpack.
+        </p>
+        <div class="projects-button-container">
+          <div class="button" onclick="">Read more...</div>
+          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
         </div>
-        <p id="placeholder-btn" class="readme" onclick="generateProjectPage(event)">Read more...</p>
       </div>
 
     <span class="big-title">PROJECTS</span>
@@ -288,15 +342,15 @@
 
   <section id="contact" class="wrapper">
 
-    <h2>If you're either interested in my professional career, or just want to say hi,<br>hit me with an email!</h2>
+    <h2>If you're either interested in my professional career, or just want to say hi,<br/>hit me with an email!</h2>
 
     <div>
       <form method="" id="contact_form" action="">
         <ul>
-          <li><input type="text" id="name" name="name" placeholder="Name" required></li>
-          <li><input type="email" id="email" name="email" placeholder="E-mail" required></li>
+          <li><input type="text" id="name" name="name" placeholder="Name *" required></li>
+          <li><input type="email" id="email" name="email" placeholder="E-mail *" required></li>
           <li><input type="text" id="phone" name="phone" placeholder="Phone"></li>
-          <li><textarea form = "contact_form" name="message" placeholder="Your message..."></textarea></li>
+          <li><textarea form = "contact_form" name="message" placeholder="Your message... *"></textarea></li>
           <li id="button-container"><button type="button" id="submit">Submit</button></li>
         </ul>
       </form>
@@ -338,15 +392,6 @@
   <!--=================   Footer Area   =================-->
 
   <footer>
-    <form action="" method="" id=lang_form>
-      <span>Language:</span>
-      <input list="languages" name="lang" placeholder="English">
-      <datalist id="languages">
-        <option value="English">
-        <option value="Hungarian">
-      </datalist>
-    </form>
-
     <p>Valkó Zalán  <span id="year"></span> &copy All rights reserved</p>
     <script>
 
@@ -356,6 +401,5 @@
     </script>
   </footer>
   <script src="scripts\bundle.js"></script>
-  <!--<script src="project_page\scripts\generate-page.js"></script>-->
 </body>
 </html>

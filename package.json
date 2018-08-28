@@ -22,8 +22,7 @@
     "gulp-uglify": "^3.0.0",
     "gulplog": "^1.0.0",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.11.0"
+    "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
     "inline-svg": "^2.2.3",

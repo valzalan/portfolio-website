@@ -1,100 +1,88 @@
 
-const gulp = require( "gulp" ),
-      browserify = require( "browserify" ),
-      uglify = require( "gulp-uglify" ),
+'use strict';
+
+const gulp = require( "gulp" );
+
+//    JavaScript bundling
+const browserify = require( "browserify" ),
       babel = require( "gulp-babel" ),
-      source = require( "vinyl-source-stream" ),
+      uglify = require( "gulp-uglify" );
+
+//    Utilities
+const source = require( "vinyl-source-stream" ),
       buffer = require( "vinyl-buffer" ),
       sourcemaps = require( "gulp-sourcemaps" ),
-      sass = require( "gulp-sass" ),
       log = require( "gulplog" );
 
+//    Sass
+const sass = require( "gulp-sass" );
+
+//---------------------------
+//    Tasks for main page
+//---------------------------
+
 gulp.task( "bundle-js", function() {
-  var b = browserify( {
+
+  var b = browserify({
     entries: "./src/scripts/main.js",
     debug: true
   });
 
   return b.bundle()
-    .pipe( source( "bundle.js" ) )
-    .pipe( buffer() )
-    .pipe( babel( {
-      presets: [ "env" ]
-    }))
-    .pipe( sourcemaps.init( {
-      loadMaps: true
-    }))
-      .pipe( uglify() )
-      .on( "error", log.error )
-    .pipe( sourcemaps.write( "./" ) )
-    .pipe( gulp.dest( "./build/scripts/" ) );
-});
-
-gulp.task( "uglify-page-generator", function() {
-
-    return gulp.src( "./src/project_pages/scripts/generate-page.js" )
-      .pipe( babel( {
-        presets: [ "env" ]
-      }))
-      .pipe( uglify() )
-      .pipe( gulp.dest( "./build/project_page/scripts/" ) );
+    .pipe( source( "bundle.js" ))
+    .pipe( buffer())
+    .pipe( sourcemaps.init( { loadMaps: true } ))
+        // Transforms
+        .pipe( babel({
+                presets: ["env"]
+            }))
+        .pipe( uglify() )
+        .on( "error", log.error )
+    .pipe( sourcemaps.write( "./" ))
+    .pipe( gulp.dest( "./build/scripts/" ));
 });
 
 gulp.task( "sass", function() {
 
-  return gulp.src( "./src/styles/main.scss" )
-    .pipe( sourcemaps.init() )
-    .pipe( sass( {
-      outputStyle: "compressed"
-    }).on( "error", sass.logError ) )
-    .pipe( sourcemaps.write( "./" ) )
-    .pipe( gulp.dest( "./build/styles/" ) )
-    .pipe( gulp.dest( "../valzalan.github.io/styles/" ) );
+ return gulp.src( "./src/styles/**/*.scss" )
+  .pipe( sourcemaps.init() )
+
+  .pipe( sass( {
+    outputStyle: "compressed"
+  }).on( "error", sass.logError ))
+
+  .pipe( sourcemaps.write( "./" ))
+  .pipe( gulp.dest( "./build/styles/" ));
 });
 
-gulp.task( "watch", [ "sass", "bundle-js", "uglify-page-generator" ], function() {
-
-  gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
-  gulp.watch( "./src/styles/**/*.scss", [ "sass" ] );
-  gulp.watch( "./src/resume/styles/**/*.scss", [ "resume-sass" ] );
-  gulp.watch( "./src/project_pages/scripts/generate-page.js", [ "uglify-page-generator" ] );
+gulp.task( "watch", function() {
+   gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
+   gulp.watch( "./src/styles/**/*.scss", [ "sass" ] );
 });
 
-
-//              Resume page
+//----------------------------
+//   Tasks for resume page
+//----------------------------
 
 gulp.task( "resume-sass", function() {
-    return gulp.src( "./src/resume/styles/resume.scss" )
-    .pipe( sourcemaps.init() )
-    .pipe( sass( {
-      outputStyle: "compressed"
-    }).on( "error", sass.logError ) )
-    .pipe( sourcemaps.write( "./" ) )
-    .pipe( gulp.dest( "./build/resume/" ) )
-    .pipe( gulp.dest( "../valzalan.github.io/styles/" ) );
+
+ return gulp.src( "./src/styles/5-pages/resume.scss" )
+  .pipe( sourcemaps.init() )
+
+  .pipe( sass( {
+    outputStyle: "compressed"
+  }).on( "error", sass.logError ))
+
+  .pipe( sourcemaps.write( "./" ))
+  .pipe( gulp.dest( "./build/pages/resume/styles/" ));
 });
 
-
-//              For prototyping
-
-gulp.task( "sass-proto", function() {
-
-  return gulp.src( "./prototype/src/styles/main.scss" )
-    .pipe( sourcemaps.init() )
-    .pipe( sass( {
-      outputStyle: "compressed"
-    })
-      .on( "error", sass.logError ) )
-    .pipe( sourcemaps.write( "./" ) )
-    .pipe( gulp.dest( "./prototype/build/styles/" ) );
+gulp.task( "resume-watch", function() {
+    gulp.watch( "./src/styles/**/*.scss", [ "resume-sass" ] );
 });
 
-gulp.task( "watch-proto", [ "sass-proto" ], function() {
-
-  //gulp.watch( "./prototype/src/scripts/**/*.js", [ "bundle-js-proto" ] );
-  gulp.watch( "./prototype/src/styles/**/*.scss", [ "sass-proto" ] );
-});
-
-//   Default
+//--------------------
+//    Default task
+//--------------------
 
 gulp.task( "default", [ "bundle-js", "sass" ] );

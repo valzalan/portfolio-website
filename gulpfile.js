@@ -67,12 +67,6 @@ gulp.task( "sass", function() {
   .pipe( gulp.dest( "./build/styles/" ));
 });
 
-gulp.task( "watch", function() {
-   gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
-   gulp.watch( "./src/styles/**/*.scss", "!./src/styles/5-pages/*" [ "sass" ] );
-   gulp.watch( "./src/styles/5-pages/*.scss", [ "resume-sass" ] ); //TODO: implement a routing algorithm for future pages
-});
-
 //----------------------------
 //   Tasks for resume page
 //----------------------------
@@ -91,6 +85,17 @@ gulp.task( "resume-sass", function() {
   }))
   .pipe( sourcemaps.write( "./" ))
   .pipe( gulp.dest( "./build/pages/resume/styles/" ));
+});
+
+//-------------------
+//    Watch tasks
+//-------------------
+
+gulp.task( "watch", function() {
+   gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
+   gulp.watch( [ "./src/styles/**/*.scss", "!./src/styles/5-pages/*"], [ "sass" ] );
+   //TODO: implement a routing algorithm for future pages
+   gulp.watch( "./src/styles/5-pages/*.scss", [ "resume-sass" ] );
 });
 
 //--------------------

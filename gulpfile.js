@@ -6,7 +6,8 @@ const gulp = require( "gulp" );
 //    JavaScript bundling
 const browserify = require( "browserify" ),
       babel = require( "gulp-babel" ),
-      uglify = require( "gulp-uglify" );
+      uglify = require( "gulp-uglify" ),
+      eslint = require( "gulp-eslint" );
 
 //    Utilities
 const source = require( "vinyl-source-stream" ),
@@ -22,7 +23,7 @@ const sass = require( "gulp-sass" ),
 //    Tasks for main page
 //---------------------------
 
-gulp.task( "bundle-js", function() {
+gulp.task( "bundle-js", [ "lint" ], function() {
 
   var b = browserify({
     entries: "./src/scripts/main.js",
@@ -41,6 +42,13 @@ gulp.task( "bundle-js", function() {
         .on( "error", log.error )
     .pipe( sourcemaps.write( "./" ))
     .pipe( gulp.dest( "./build/scripts/" ));
+});
+
+gulp.task( "lint", function() {
+  return gulp.src( "./src/scripts/**/*.js" )
+    .pipe( eslint( { fix: true } ))
+    .pipe( eslint.format() )
+    .pipe( gulp.dest( "./src/scripts/" ));
 });
 
 gulp.task( "sass", function() {

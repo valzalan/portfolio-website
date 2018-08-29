@@ -52,6 +52,10 @@
 
   </nav>
 
+  <div id="mobile-navbar">
+    <img class="hamburger svg" src="img/hamburger.svg" alt="menu"/>
+  </div>
+
   <!--=================   Background lines   =================-->
 
   <div class="bckgrLines wrapper">
@@ -100,7 +104,7 @@
 
     <section id="about" class="wrapper">
 
-      <h2>Who am I?</h2>
+      <h2 class="section-title">Who am I?</h2>
 
       <div>
         <div id="profile"></div>
@@ -111,12 +115,10 @@
         <h3>
           <span id="age">
             <script>
-
               let birthday = new Date( Date.parse( "1997.08.25" ) );
               let ageDifMs = Date.now() - birthday.getTime();
               let ageDate = new Date( ageDifMs );
               document.getElementById( "age" ).innerHTML = String( Math.abs( ageDate.getUTCFullYear() - 1970 ) );
-
             </script>
           </span>years old Computer Science student.
         </h3>
@@ -150,7 +152,7 @@
 
     <section id="skills" class="wrapper">
 
-      <h2>Things I'm good at</h2>
+      <h2 class="section-title">Things I'm good at</h2>
 
       <div>
         <h3>Languages</h3>
@@ -270,7 +272,7 @@
 
     <section id="projects" class="wrapper">
 
-      <h2>What I've done so far</h2>
+      <h2 class="section-title">What I've done so far</h2>
 
       <div class="project-container">
         <div class="img-background">
@@ -283,7 +285,10 @@
         </p>
         <div class="projects-button-container">
           <div class="button" onclick="">Read more...</div>
-          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
+          <div class="button" onclick="window.open('https://github.com/valzalan/sudoku-solver', '_blank');">
+            <img class="github-icon" src="img/github-logo.svg" alt="github"/>
+            <span class="button-text">Repo</span>
+          </div>
         </div>
       </div>
 
@@ -299,7 +304,10 @@
         </p>
         <div class="projects-button-container">
           <div class="button" onclick="">Read more...</div>
-          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
+          <div class="button" onclick="window.open('https://github.com/valzalan/portfolio-website', '_blank');">
+            <img class="github-icon" src="img/github-logo.svg" alt="github"/>
+            <span class="button-text">Repo</span>
+          </div>
         </div>
       </div>
 
@@ -314,7 +322,10 @@
         </p>
         <div class="projects-button-container">
           <div class="button" onclick="">Read more...</div>
-          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
+          <div class="button" onclick="window.open('https://github.com/valzalan/to-do-list', '_blank');">
+            <img class="github-icon" src="img/github-logo.svg" alt="github"/>
+            <span class="button-text">Repo</span>
+          </div>
         </div>
       </div>
 
@@ -329,7 +340,10 @@
         </p>
         <div class="projects-button-container">
           <div class="button" onclick="">Read more...</div>
-          <div class="button" onclick=""><img class="github-icon" src="img/github-logo.svg" alt="github"/><span class="button-text">Repo</span></div>
+          <div class="button" onclick="">
+            <img class="github-icon" src="img/github-logo.svg" alt="github"/>
+            <span class="button-text">Repo</span>
+          </div>
         </div>
       </div>
 
@@ -342,7 +356,8 @@
 
   <section id="contact" class="wrapper">
 
-    <h2>If you're either interested in my professional career, or just want to say hi,<br/>hit me with an email!</h2>
+    <h2 class="section-title">If you're either interested in my professional
+    career, or just want to say hi,<br/>hit me with an email!</h2>
 
     <div>
       <form method="" id="contact_form" action="">
@@ -394,10 +409,7 @@
   <footer>
     <p>Valkó Zalán  <span id="year"></span> &copy All rights reserved</p>
     <script>
-
-      let year = new Date().getFullYear();
-      document.getElementById( "year" ).innerHTML = year;
-
+      document.getElementById( "year" ).innerHTML = new Date().getFullYear();
     </script>
   </footer>
   <script src="scripts\bundle.js"></script>

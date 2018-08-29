@@ -14,8 +14,9 @@ const source = require( "vinyl-source-stream" ),
       sourcemaps = require( "gulp-sourcemaps" ),
       log = require( "gulplog" );
 
-//    Sass
-const sass = require( "gulp-sass" );
+//    Css pre and postprocessing
+const sass = require( "gulp-sass" ),
+      autoprefixer = require( "gulp-autoprefixer" );
 
 //---------------------------
 //    Tasks for main page
@@ -44,20 +45,23 @@ gulp.task( "bundle-js", function() {
 
 gulp.task( "sass", function() {
 
- return gulp.src( "./src/styles/**/*.scss" )
+ return gulp.src( [ "./src/styles/**/*.scss", "!./src/styles/5-pages/*" ] )
   .pipe( sourcemaps.init() )
 
   .pipe( sass( {
     outputStyle: "compressed"
   }).on( "error", sass.logError ))
-
+  .pipe( autoprefixer( {
+    browsers: [ "last 2 versions" ],
+    cascade: false
+  }))
   .pipe( sourcemaps.write( "./" ))
   .pipe( gulp.dest( "./build/styles/" ));
 });
 
 gulp.task( "watch", function() {
    gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
-   gulp.watch( "./src/styles/**/*.scss", "!./src/styles/5-pages/" [ "sass" ] );
+   gulp.watch( "./src/styles/**/*.scss", "!./src/styles/5-pages/*" [ "sass" ] );
    gulp.watch( "./src/styles/5-pages/*.scss", [ "resume-sass" ] ); //TODO: implement a routing algorithm for future pages
 });
 
@@ -73,7 +77,10 @@ gulp.task( "resume-sass", function() {
   .pipe( sass( {
     outputStyle: "compressed"
   }).on( "error", sass.logError ))
-
+  .pipe( autoprefixer( {
+    browsers: [ "last 2 versions" ],
+    cascade: false
+  }))
   .pipe( sourcemaps.write( "./" ))
   .pipe( gulp.dest( "./build/pages/resume/styles/" ));
 });
@@ -82,4 +89,4 @@ gulp.task( "resume-sass", function() {
 //    Default task
 //--------------------
 
-gulp.task( "default", [ "bundle-js", "sass" ] );
+gulp.task( "default", [ "bundle-js", "sass", "resume-sass" ] );

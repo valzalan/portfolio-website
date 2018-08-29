@@ -51,24 +51,23 @@ function updateBrPoints() {
 
 $( document ).ready( function() {
 
+// Icons need to be inlined, so
+// everything starts as a callback of inlineSVG
+
 inlineSVG.init( {
   svgSelector: "img.svg"
-}, function() {   // Everything starts as a callback of inlineSVG
+}, function() {
 
   console.log( "All SVGs inlined" );
 
-  //------      Hide everything except hero area      ------
-
-  $( "section.wrapper" ).not( "#hero" ).css( "opacity", 0 );
-
-
   //------      Event handlers      ------
 
-  $( "#sidebar, #nav-cross" ).click( function() {
+  $( "#sidebar, #nav-cross, .hamburger" ).click( function(event) {
 
-    toggleNav();
+    toggleNav(event);
   });
 
+// Project items in menu
   $( "#project-dropdown-icon" ).click(function() {
 
     if( $( ".subitem" ).css( "display" ) == "list-item" ) {
@@ -83,11 +82,13 @@ inlineSVG.init( {
     $( ".subitem" ).toggle();
   });
 
+// Anchor scroll
   $( "a, #contact-button" ).click( function( event ) {
 
     navscroll( event );
   });
 
+// Skill level bars
   $( ".skill" ).click( function(event) {
 
     let id = event.currentTarget.id;

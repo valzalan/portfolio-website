@@ -83,6 +83,7 @@
     cursor: pointer;
 
     @extend %middle-out-sweep-animation;
+    @extend %middle-out-circle-sweep-animation;
   }
 
   .github-icon {

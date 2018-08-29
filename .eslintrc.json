@@ -1,0 +1,9 @@
+{
+  "extends": "idiomatic",
+  "rules": {
+    "linebreak-style": ["error", "windows"],
+    "quotes": ["error", "double"],
+    "indent": ["error", "tab", { "VariableDeclarator": { "var": 2, "let": 2, "const": 3 } }],
+    "func-names": ["error", "never"]
+  }
+}

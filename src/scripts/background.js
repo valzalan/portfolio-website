@@ -1,67 +1,70 @@
 
-const $ = require( "jquery" );
+//TODO: Refactor to only fire changes when present scroll inside, but
+// previous scroll is outside of brpoint. (solves some minor bugs)
 
-const switchColors = require( "./switch-colors.js" ),
-      changeVis = require( "./change-vis.js" );
+const $ = require( "jquery" ),
+			switchColors = require( "./switch-colors.js" ),
+			changeVis = require( "./change-vis.js" );
 
 module.exports = function( posY, breakPoints ) {
 
-  const primaryColor = "rgb(14, 11, 22)",       //TODO Maybe implement a hex converter??
-        secondaryColor = "rgb(242, 242, 242)";
+	//TODO: Maybe implement a hex converter??
+	const primaryColor = "rgb(14, 11, 22)",
+				secondaryColor = "rgb(242, 242, 242)";
 
-  if( posY <= breakPoints[ 0 ] ) {
+	if ( posY <= breakPoints[ 0 ]) {
 
-    if( $( "body" ).css( "backgroundColor" ) == secondaryColor ) {
+		if ( $( "body" ).css( "backgroundColor" ) == secondaryColor ) {
 
-      switchColors( primaryColor );
-      changeVis( "visible", "#hero" );
-      changeVis( "hidden", "all", "#hero" );
+			switchColors( primaryColor );
+			changeVis( "visible", "#hero" );
+			changeVis( "hidden", "all", "#hero" );
 
-      $( "#sectionName" ).text( "01_home" );
-    }
-  }
+			$( "#sectionName" ).text( "01_home" );
+			//TODO: Animate center line in hero area
+			//$( "#scroll" ).find("rect").css( "width" ) += posY;
+		}
+	}
 
-  if( posY > breakPoints[ 0 ] && posY <= breakPoints[ 2 ] ) {
+	if ( posY > breakPoints[ 0 ] && posY <= breakPoints[ 2 ]) {
 
-    if( $( "body" ).css( "backgroundColor" ) == primaryColor ) {
+		if ( $( "body" ).css( "backgroundColor" ) == primaryColor ) {
 
-      switchColors( secondaryColor );
-      changeVis( "visible", "#about, #skills" );
-      changeVis( "hidden", "all", "#about, #skills" );
-    }
+			switchColors( secondaryColor );
+			changeVis( "visible", "#about, #skills" );
+			changeVis( "hidden", "all", "#about, #skills" );
+		}
 
-    if( posY < breakPoints[ 1 ] ) {
+		if ( posY < breakPoints[ 1 ]) {
+			$( "#sectionName" ).text( "02_about" );
+		}
+	}
 
-      $( "#sectionName" ).text( "02_about" );
-    }
-  }
+	if ( posY > breakPoints[ 1 ] && posY <= breakPoints[ 2 ]) {
+		$( "#sectionName" ).text( "03_skills" );
+	}
 
-  if( posY > breakPoints[ 1 ] && posY <= breakPoints[ 2 ] ) {
+	if ( posY > breakPoints[ 2 ] && posY <= breakPoints[ 3 ]) {
 
-    $( "#sectionName" ).text( "03_skills" );
-  }
+		if ( $( "body" ).css( "backgroundColor" ) == secondaryColor ) {
 
-  if( posY > breakPoints[ 2 ] && posY <= breakPoints[ 3 ] ) {
+			switchColors( primaryColor );
+			changeVis( "visible", "#projects" );
+			changeVis( "hidden", "all", "#projects" );
 
-    if( $( "body" ).css( "backgroundColor" ) == secondaryColor ) {
+			$( "#sectionName" ).text( "04_projects" );
+		}
+	}
 
-      switchColors( primaryColor );
-      changeVis( "visible", "#projects" );
-      changeVis( "hidden", "all", "#projects" );
+	if ( posY > breakPoints[ 3 ]) {
 
-      $( "#sectionName" ).text( "04_projects" );
-    }
-  }
+		if ( $( "body" ).css( "backgroundColor" ) == primaryColor ) {
 
-  if( posY > breakPoints[ 3 ] ) {
+			switchColors( secondaryColor );
+			changeVis( "visible", "#contact" );
+			changeVis( "hidden", "all", "#contact" );
 
-    if( $( "body" ).css( "backgroundColor" ) == primaryColor ) {
-
-      switchColors( secondaryColor );
-      changeVis( "visible", "#contact" );
-      changeVis( "hidden", "all", "#contact" );
-
-      $( "#sectionName" ).text( "05_contact" );
-    }
-  }
+			$( "#sectionName" ).text( "05_contact" );
+		}
+	}
 }

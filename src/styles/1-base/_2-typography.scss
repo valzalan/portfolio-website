@@ -23,11 +23,15 @@ nav {
 #hero {
 
   h1 {
-    @include roboto(700, 42px, $white);
+    @include roboto(700, 3.8vw, $white);
 
     text-align: center;
     letter-spacing: 2px;
     white-space: pre-line;
+
+    @media screen and(max-width: $screen-m) {
+      font-size: 6vw;
+    }
   }
 
   div, span, p {

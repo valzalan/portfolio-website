@@ -70,7 +70,7 @@ nav {
     text-align: center;
 
     @media screen and (max-width: $screen-s) {
-      font-size: 18px;
+      font-size: 25px;
     }
   }
 
@@ -164,7 +164,7 @@ nav {
 #contact {
 
   p {
-    @include raleway(200, 16px, $primary-color);
+    @include openSans(200, 16px, $primary-color);
     @media screen and (max-width: $screen-m) {
       font-size: 12px;
     }

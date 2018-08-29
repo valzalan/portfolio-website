@@ -1,29 +1,42 @@
 
   #profile {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
     width: calc(16.5vw / 1.414); //Formula: a<side of square> = (100vw/6)/sqrt(2)
     height: calc(16.5vw / 1.414);
-    display: inline-block;
     margin-top: 20vh;
+    left: calc(16.5vw / 2);
     transform: rotate(-45deg);
     transform-origin: 0 100%;
-    overflow: hidden;
-    position: relative;
-    left: calc(16.5vw / 2);
     background: url("../img/profile_alt.jpg");
     background-size: cover;
     background-position: center top;
 
+    @media screen and(max-width: $screen-m) {
+      display: block;
+      width: calc(30vw / 1.414); //Formula: a<side of square> = (100vw/6)/sqrt(2)
+      height: calc(30vw / 1.414);
+      left: 50%;
+    }
     &::after {
       content: "";
+      position: absolute;
       width: calc((16.5vw / 1.414) * 1.4);
       height: calc((16.5vw / 1.414) * 1.4);
-      position: absolute;
       top: 50%;
       left: 50%;
       margin-left: calc(((16.5vw / 1.414) * 0.68) * (-1));
       margin-top: calc(((16.5vw / 1.414) * 0.68) * (-1));
       background: inherit;
       transform: rotate(45deg);
+
+      @media screen and(max-width: $screen-m) {
+        width: calc((30vw / 1.414) * 1.4);
+        height: calc((30vw / 1.414) * 1.4);
+        margin-left: calc(((30vw / 1.414) * 0.68) * (-1));
+        margin-top: calc(((30vw / 1.414) * 0.68) * (-1));
+      }
     }
   }
 

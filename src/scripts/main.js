@@ -1,4 +1,4 @@
-
+//1150
 const $ = require( "jquery" ),
 			inlineSVG = require( "inline-svg" ),
 
@@ -7,12 +7,14 @@ const $ = require( "jquery" ),
 
 			background = require( "./background.js" ),
 			toggleNav = require( "./nav.js" ),
-			navscroll = require( "./nav-scroll.js" );
+			navscroll = require( "./nav-scroll.js" ),
+			changeVis = require( "./change-vis.js" );
 
 //TODO: Maybe pull out to a file?
 // .on("load") can't be triggered inside document.ready()
 
-let breakPoints = [];
+let breakPoints = [],
+		posY = [];
 
 $( window ).on( "resize load", function() {
 	console.log( "updating breakpoints" );
@@ -21,7 +23,10 @@ $( window ).on( "resize load", function() {
 
 $( window ).on( "scroll load", function() {
 
-	let posY = $( window ).scrollTop();
+	posY[ 1 ] = posY[ 0 ];
+	posY[ 0 ] = $( window ).scrollTop() + ( window.innerHeight / 2 ) + window.innerHeight * 0.15;
+	console.log( posY );
+
 	background( posY, breakPoints );
 });
 
@@ -34,6 +39,10 @@ function updateBrPoints() {
 			sections = [ "#hero", "#about", "#skills", "#projects" ];
 
 	for ( let i = 0; i < sections.length; i++ ) {
+		marginHeights += $( sections[ i ]).outerHeight( true );
+		breakPoints.push( marginHeights );
+	}
+	/*for ( let i = 0; i < sections.length; i++ ) {
 
 		if ( i != 0 ) {
 
@@ -43,7 +52,7 @@ function updateBrPoints() {
 		contentHeight = $( sections[ i ]).outerHeight();
 
 		breakPoints.push(( marginHeights + contentHeight ) - winHeight * 0.3 );
-	}
+	}*/
 	console.log( breakPoints );
 	return breakPoints;
 }
@@ -60,13 +69,17 @@ $( document ).ready( function() {
 
 		console.log( "All SVGs inlined" );
 
+		changeVis( "hidden", "all", "#hero" );
 		//------      Event handlers      ------
 
-		$( "#sidebar, #nav-cross, .hamburger" ).click( function( event ) {
-
+		$( "#sidebar, .nav-cross, .hamburger" ).click( function( event ) {
+			$( ".nav-cross" ).removeClass( "static" );
 			toggleNav( event );
 		});
 
+		$( ".nav-cross" ).hover( function() {
+			$( this ).addClass( "static" );
+		});
 		// Project items in menu
 		$( "#project-dropdown-icon" ).click( function() {
 
@@ -100,5 +113,12 @@ $( document ).ready( function() {
 			}, 100 );
 		});
 
+
+		/*
+*		if ( window.innerWidth < 1150 ) {
+*			console.log( "replaced" );
+*			$( "#li-resumem, .resume" ).attr( "onclick", "window.open( 'pages/resume/zalan_valko_resume_2018-bw.pdf' );" );
+*		}
+*/
 	});
 });

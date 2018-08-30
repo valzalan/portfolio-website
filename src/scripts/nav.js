@@ -10,7 +10,7 @@ module.exports = function( event ) {
 		if ( $( "#navContainer" ).css( "display" ) == "none" ) {
 			// show
 			$( "#navContainer" ).css( "height", "0vh" );
-			$( "#nav-cross" ).show();
+			$( ".nav-cross" ).show();
 
 			$( "#navContainer" ).show().animate({
 				height: "100vh"
@@ -20,7 +20,7 @@ module.exports = function( event ) {
 			});
 		} else {
 			// hide
-			$( "#navContainer > ul, #nav-cross" ).hide();
+			$( "#navContainer > ul, .nav-cross" ).hide();
 
 			$( "#navContainer" ).animate({
 				height: "1vh"
@@ -40,7 +40,7 @@ module.exports = function( event ) {
 			$( "#navContainer" ).css( "width", "0vw" );
 			$( "#sectionName" ).css( "color", "white" );
 
-			$( "#nav-cross" ).show();
+			$( ".nav-cross" ).show();
 
 			$( "#navContainer" ).show().animate({
 				width: "80vw"
@@ -52,7 +52,7 @@ module.exports = function( event ) {
 		} else {
 
 			// hide
-			$( "#navContainer > ul, #nav-cross" ).hide();
+			$( "#navContainer > ul, .nav-cross" ).hide();
 
 			$( "#navContainer" ).animate({
 				width: "1vw"

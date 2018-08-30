@@ -2,6 +2,7 @@
 #contact {
   position: relative;
   overflow: hidden;
+  margin-bottom: 0;
 
   @media screen and (max-width: $screen-m){
     display: block;

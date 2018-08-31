@@ -41,7 +41,7 @@ gulp.task( "bundle-js", [ "lint" ], function() {
         .pipe( uglify() )
         .on( "error", log.error )
     .pipe( sourcemaps.write( "./" ))
-    .pipe( gulp.dest( "./build/scripts/" ));
+    .pipe( gulp.dest( "./build/public/scripts/" ));
 });
 
 gulp.task( "lint", function() {
@@ -64,7 +64,7 @@ gulp.task( "sass", function() {
     cascade: false
   }))
   .pipe( sourcemaps.write( "./" ))
-  .pipe( gulp.dest( "./build/styles/" ));
+  .pipe( gulp.dest( "./build/public/styles/" ));
 });
 
 //----------------------------

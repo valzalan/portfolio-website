@@ -1,11 +1,10 @@
 npm_cheat_sheet.txt
-ToDo.txt
 /node_modules
 /.sass-cache
 /mockup
 /prototype
 /build/pages/project_page
-build/img/svg-defs.svg
+/build/public/pages/project_page
 src/project_pages/
 awskey.pem
 build/lang-hun.json

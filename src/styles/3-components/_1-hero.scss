@@ -6,6 +6,8 @@
   h1 {
     padding-top: 6%;
     animation: tracking-in-expand 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    position: relative;
+    z-index: -10;
     @media screen and(max-width: $screen-m) {
       padding-top: 12%;
     }
@@ -28,7 +30,6 @@
     height: 100%;
     padding: 4vh 4vw;
     grid-template-columns: 1fr 1fr;
-    z-index: 10;
     @media screen and(max-width: $screen-m) {
       display: none;
     }
@@ -62,6 +63,7 @@
     top: 50%;
     left: calc(50% - 7.5vw);
     border: $accent-color 6px solid;
+    //z-index: 20;
 
     @media screen and(max-width: $screen-l) {
       width: 20vw;
@@ -88,9 +90,13 @@
     left: calc(50% - 15px);
   }
 
-  .heroContact:hover {
-    cursor: pointer;
-    color: $accent-color;
+  .heroContact {
+    z-index: 10;
+
+    &:hover {
+      cursor: pointer;
+      color: $accent-color;
+    }
   }
 
   .icon {

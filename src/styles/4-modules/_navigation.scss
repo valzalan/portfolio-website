@@ -119,6 +119,7 @@ nav {
     height: 100vh;
     width: 45px;
     transition: background-color 0.2s ease;
+    //z-index: 20;
 
     @media screen and (max-width: $screen-m) {
       display: none;
@@ -147,7 +148,6 @@ nav {
     #menu-icon {
       width: 45px;
       height: 100vh;
-      z-index: 20;
     }
   }
 

@@ -1,1 +1,0 @@
-"use strict";function generateProjectPage(e){console.log(e);var o=e.target.id.replace("-btn","");console.log(o);JSON.parse()}

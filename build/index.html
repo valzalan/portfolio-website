@@ -43,9 +43,10 @@
         <li><a href="#about">About me</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a><img class="svg" id="project-dropdown-icon" src="img/plus.svg" alt="Project dropdown"/></li>
-        <li class="subitem" onclick="window.open('pages/live-projects/sudoku/sudoku.html', '_blank');">Sudoku app</li>
-        <li class="subitem" onclick="">Grandsight webdesign</li>
-        <li class="subitem" onclick="window.open('pages/live-projects/todolist/todolist.html', '_blank');">To Do list</li>
+        <li class="subitem"><a href="#sudoku-anchor">Sudoku app</a></li>
+        <li class="subitem"><a href="#portfolio-anchor">My portfolio website</a></li>
+        <li class="subitem"><a href="#todolist-anchor">To Do list</a></li>
+        <li class="subitem"><a href="#dominio-anchor">Domin.io</a></li>
         <li><a href="#contact">Contact</a></li>
         <li id="li-resume" onclick="window.open('pages/resume/zalan_valko_resume_2018-bw.pdf');">See my resume</li>
       </ul>
@@ -78,8 +79,8 @@
       <div id="fixed-container">
         <span id="lang">eng</span>
         <ul>
-          <li><span class="heroContact" onclick="document.location.href = 'tel:+36705373697'">+36/70/537-3697</span></li>
-          <li><span class="heroContact" onclick="document.location.href = 'mailto:valzalan@gmail.com'">valzalan@gmail.com</span></li>
+          <li><span class="heroContact" onclick="window.location.href = 'tel:+36-70-537-3697';">+36/70/537-3697</span></li>
+          <li><span class="heroContact" onclick="window.location.href = 'mailto:valzalan@gmail.com';">valzalan@gmail.com</span></li>
         </ul>
 
         <div class="heroContact resume" onclick="window.open('pages/resume/zalan_valko_resume_2018-bw.pdf');">Resumé</div>
@@ -276,7 +277,7 @@
 
       <h2 class="section-title">What I've done so far</h2>
 
-      <div class="project-container">
+      <div class="project-container" id="sudoku-anchor">
         <div class="img-background">
           <div class="image" id="sudoku" onclick="window.open('pages/live-projects/sudoku/sudoku.html', '_blank');"></div>
         </div>
@@ -294,7 +295,7 @@
         </div>
       </div>
 
-      <div class="project-container">
+      <div class="project-container" id="portfolio-anchor">
         <div class="img-background">
           <div class="image" id="portfolio-site"></div>
         </div>
@@ -313,7 +314,7 @@
         </div>
       </div>
 
-      <div class="project-container">
+      <div class="project-container" id="todolist-anchor">
         <div class="img-background">
           <div class="image" id="todolist" onclick="window.open('pages/live-projects/todolist/todolist.html', '_blank');"></div>
         </div>
@@ -331,7 +332,7 @@
         </div>
       </div>
 
-      <div class="project-container">
+      <div class="project-container" id="dominio-anchor">
         <div class="img-background">
           <div class="image" id="Domin.io"></div>
         </div>

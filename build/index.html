@@ -48,7 +48,7 @@
         <li class="subitem"><a href="#todolist-anchor">To Do list</a></li>
         <li class="subitem"><a href="#dominio-anchor">Domin.io</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li id="li-resume" onclick="window.open('pages/resume/zalan_valko_resume_2018-bw.pdf');">See my resume</li>
+        <li id="li-resume" onclick="window.open('/resume', '_blank');">See my resume</li>
       </ul>
       <img class="svg nav-cross" src="img/cross.svg" onclick="" alt="Close navigation"/>
     </div>
@@ -83,7 +83,7 @@
           <li><span class="heroContact" onclick="window.location.href = 'mailto:valzalan@gmail.com';">valzalan@gmail.com</span></li>
         </ul>
 
-        <div class="heroContact resume" onclick="window.open('pages/resume/zalan_valko_resume_2018-bw.pdf');">Resumé</div>
+        <div class="heroContact resume" onclick="window.open('/resume', '_blank');">Resumé</div>
         <div>
           <img class="icon svg" src="img/facebook-logo.svg" alt="Facebook" onclick="window.open('https://www.facebook.com/zalan.valko', '_blank');"/>
           <img class="icon svg" src="img/github-logo.svg" alt="Github" onclick="window.open('https://github.com/valzalan', '_blank');"/>
@@ -279,7 +279,7 @@
 
       <div class="project-container" id="sudoku-anchor">
         <div class="img-background">
-          <div class="image" id="sudoku" onclick="window.open('pages/live-projects/sudoku/sudoku.html', '_blank');"></div>
+          <div class="image" id="sudoku" onclick="window.open('/sudoku', '_blank');"></div>
         </div>
         <h3>A Sudoku App</h3>
         <p>An intuitive sudoku game app. Made entirely with pure HTML, CSS and
@@ -316,7 +316,7 @@
 
       <div class="project-container" id="todolist-anchor">
         <div class="img-background">
-          <div class="image" id="todolist" onclick="window.open('pages/live-projects/todolist/todolist.html', '_blank');"></div>
+          <div class="image" id="todolist" onclick="window.open('/todolist', '_blank');"></div>
         </div>
         <h3>To Do List</h3>
         <p>A fairly simple to do list. Impressed, yea? You can find this in almost every junior dev's repos,
@@ -415,6 +415,6 @@
       document.getElementById( "year" ).innerHTML = new Date().getFullYear();
     </script>
   </footer>
-  <script src="scripts\bundle.js"></script>
+  <script src="scripts/bundle.js"></script>
 </body>
 </html>

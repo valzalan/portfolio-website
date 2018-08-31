@@ -14,6 +14,10 @@ body {
   left: 20%;
   cursor: default;
   z-index: -10;
+
+  @media screen and(max-width: $screen-m) {
+    display: none;
+  }
 }
 
 .svg:hover {
@@ -27,7 +31,7 @@ body {
 .wrapper {
   display: grid;
   margin-bottom: 30vh;
-  max-width: 100vw;
+  max-width: 100%;
   overflow-x: hidden;
   grid-template-columns: repeat(6, 1fr);
 

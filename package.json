@@ -2,12 +2,9 @@
   "name": "valzalan.me",
   "version": "1.0.0",
   "description": "My personal portfolio website",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify src/scripts/main.js -o build/scripts/bundle.js && sass src/styles/main.scss:build/styles/main.css src/styles/project_page.scss:build/styles/project_page.css",
-    "watch-js": "watchify src/scripts/main.js -o build/scripts/bundle.js -v",
-    "watch-css": "sass --watch src/styles/main.scss:build/styles/main.css src/styles/project_page.scss:build/styles/project_page.css"
   },
   "author": "Zalán Valkó",
   "license": "ISC",
@@ -25,15 +22,19 @@
     "gulp-uglify": "^3.0.0",
     "gulplog": "^1.0.0",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "ajv": "^6.5.3"
   },
   "dependencies": {
-    "ajv": "^6.5.3",
+    "express": "^4.16.3",
     "inline-svg": "^2.2.3",
     "jquery": "^3.3.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/valzalan/portfolio-website"
+  },
+  "engines": {
+    "node": "8.11.4"
   }
 }

@@ -7,7 +7,6 @@ ToDo.txt
 /build/pages/project_page
 build/img/svg-defs.svg
 src/project_pages/
-build/server.js
 awskey.pem
 build/lang-hun.json
 _old_gulpfile.js

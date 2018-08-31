@@ -76,7 +76,7 @@
       transition: width 0.3s ease-in-out;
     }
 
-    @include skillBarWidths();
+    @include skillBars();
 
     td {
       border: 1px rgba($gray, 0.5) solid;

@@ -1,37 +1,19 @@
 
-@mixin skillBarWidths() {
-
-  //    1 block == 2.4rem
-
-  tr.js::before {
-    width: calc(2.4rem * 6);
+@mixin skillBarConstructor( $skill, $level ) {
+  tr.#{$skill}::before {
+    // 1 block == 2.4rem
+    width: calc(2.4rem * #{$level});
   }
+}
 
-  tr.html::before {
-    width: calc(2.4rem * 8);
-  }
+@mixin skillBars() {
 
-  tr.css::before {
-    width: calc(2.4rem * 8);
-  }
-
-  tr.jquery::before {
-    width: calc(2.4rem * 5);
-  }
-
-  tr.sass::before {
-    width: calc(2.4rem * 7);
-  }
-
-  tr.node::before {
-    width: calc(2.4rem * 1);
-  }
-
-  tr.git::before {
-    width: calc(2.4rem * 3);
-  }
-
-  tr.linux::before {
-    width: calc(2.4rem * 2);
-  }
+  @include skillBarConstructor("js",     6);
+  @include skillBarConstructor("html",   8);
+  @include skillBarConstructor("css",    8);
+  @include skillBarConstructor("jquery", 5);
+  @include skillBarConstructor("sass",   7);
+  @include skillBarConstructor("node",   1);
+  @include skillBarConstructor("git",    3);
+  @include skillBarConstructor("linux",  2);
 }

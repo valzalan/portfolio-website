@@ -11,16 +11,30 @@ module.exports = function( event ) {
 		id = "#contact";
 	}
 
-	$( "html" ).animate({
-		scrollTop: $( id ).offset().top
-	}, 900 );
+	if ( window.innerWidth > 750 ) {
+		$( "html" ).animate({
+			scrollTop: $( id ).offset().top
+		}, 900 );
 
-	$( "#navContainer > ul" ).hide();
+		$( "#navContainer > ul" ).hide();
 
-	$( "#navContainer" ).animate({
-		width: "1vw"
-	}, 300, function() {
+		$( "#navContainer" ).animate({
+			width: "1vw"
+		}, 300, function() {
+			$( "#navContainer" ).hide();
+		});
 
-		$( "#navContainer" ).hide();
-	});
+	} else {
+		$( "html" ).animate({
+			scrollTop: $( id ).offset().top - window.innerHeight * 0.1
+		}, 900 );
+
+		$( "#navContainer > ul" ).hide();
+
+		$( "#navContainer" ).animate({
+			height: "1vh"
+		}, 300, function() {
+			$( "#navContainer" ).hide();
+		});
+	}
 }

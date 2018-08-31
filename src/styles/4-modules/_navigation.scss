@@ -70,11 +70,10 @@ nav {
     position: relative;
     top: 18%;
     left: 25%;
-  }
 
-  li {
-    margin-bottom: 0.7em;
-    cursor: pointer;
+    @media screen and(max-width: $screen-m){
+      left: 10%;
+    }
   }
 
   .subitem {
@@ -88,11 +87,31 @@ nav {
   a {
     position: relative;
     left: 20%;
-    @include roboto(500, 40px, $white);
+
+    @include roboto(500, 3.5vw, $white);
+
+    @media screen and(max-width: $screen-m){
+      font-size: 8vw;
+      left: 10%;
+    }
+  }
+
+  td, li, .subitem > a {
+    left: 0;
+    @include roboto(400, 1.5vw, $white);
+
+    @media screen and(max-width: $screen-m){
+      font-size: 5vw;
+    }
   }
 
   td {
-      padding-right: 1em;
+    padding-right: 1em;
+  }
+
+  li {
+    margin-bottom: 0.7em;
+    cursor: pointer;
   }
 
   #sidebar {
@@ -133,7 +152,7 @@ nav {
   }
 
   #project-dropdown-icon {
-    width: 30px;
+    width: 1.7rem;
     position: relative;
     left: 18vw;
     transition: transform .4s ease-in-out;
@@ -146,6 +165,12 @@ nav {
     left: 90%;
     animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
+    @media screen and(max-width: $screen-m){
+      left: 80%;
+      bottom: 0;
+      top: 10%;
+    }
+
     &:hover {
       animation: rotate-center-right 0.6s ease-in-out both;
     }
@@ -153,20 +178,5 @@ nav {
 
   .static {
     animation: rotate-center-left 0.6s ease-in-out both;
-  }
-
-  td, li {
-    @include roboto(400, 20px, $white);
-    animation: scaleIn 0.2s ease;
-
-    @keyframes scaleIn {
-      0% {
-        transform: scaleY(0);
-      }
-
-      100% {
-        transform: scaleY(1);
-      }
-    }
   }
 }

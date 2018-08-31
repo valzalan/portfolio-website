@@ -48,6 +48,10 @@
 
   h3 {
     margin-top: 1em;
+
+    @media screen and(max-width: $screen-m){
+      padding: 0 1em;
+    }
   }
 
   div:nth-child(2) {

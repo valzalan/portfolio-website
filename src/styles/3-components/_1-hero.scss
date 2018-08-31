@@ -28,7 +28,7 @@
     height: 100%;
     padding: 4vh 4vw;
     grid-template-columns: 1fr 1fr;
-
+    z-index: 10;
     @media screen and(max-width: $screen-m) {
       display: none;
     }
@@ -86,7 +86,6 @@
     position: absolute;
     bottom: 20px;
     left: calc(50% - 15px);
-    //margin: 4em auto;
   }
 
   .heroContact:hover {

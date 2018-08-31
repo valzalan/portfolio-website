@@ -2,19 +2,11 @@
 
 nav {
 
-  a {
-    @include roboto(500, 40px, $white);
-  }
-
   #sectionName {
     @include robotoMono(300, 12px, $white);
 
     letter-spacing: 1px;
     writing-mode: tb-rl;
-  }
-
-  td, li {
-    @include roboto(400, 20px, $white);
   }
 }
 

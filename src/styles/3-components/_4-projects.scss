@@ -50,7 +50,12 @@
     right: 0.5em;
     top: 30%;
     writing-mode: tb-rl;
+
     @include robotoMono(200, 14px, $white);
+  }
+
+  #portfolio-anchor .img-background::after {
+    content: "01_home";
   }
 
   .image {
@@ -121,15 +126,15 @@
     background-image: url("../img/sudoku.png");
   }
 
-  #grandsight {
-    background-image: url("../img/grandsight-placeholder.png");
+  #portfolio {
+    background-image: url("");
   }
 
   #todolist {
     background-image: url("../img/todolist.png");
   }
 
-  #placeholder {
-    background-image: url("../img/placeholder.jpg");
+  #dominio {
+    background-image: url("");
   }
 }

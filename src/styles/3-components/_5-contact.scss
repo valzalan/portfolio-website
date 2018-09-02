@@ -79,7 +79,7 @@
       }
     }
 
-    svg/*:not(#contact-phone-img):not(#contact-email-img)*/ {
+    svg {
       @media screen and (max-width: $screen-m) {
         display: block;
         margin: 0 auto;
@@ -100,38 +100,8 @@
   }
 
   #button-container {
-    max-height: 40px;
-
-    &::after {
-      content: "";
-      display: block;
-      position: relative;
-      top: -40px;
-      height: 37px;
-      width: 0;
-      z-index: -1;
-      border-bottom: 3px solid $primary-color;
-      background-color: $accent-color;
-      transition: width 0.3s ease;
-    }
-
-    &:hover {
-      &::after {
-        width: 100%;
-        cursor: pointer;
-      }
-    }
-
-    &:hover > #submit {
-      background-color: rgba(0,0,0,0);
-      color: $white;
-      cursor: pointer;
-      border-color: $primary-color;
-    }
-  }
-
-  #submit {
-    transition: background-color 0.3s ease;
+    background-color: rgba(black, .1);
+    @extend %middle-out-sweep-animation;
   }
 
   #contact-item-container {
@@ -190,6 +160,15 @@
       max-height: 50em;
       padding: 1em;
       resize: vertical;
+    }
+
+    input[type="submit"] {
+      background-color: rgba(0,0,0,0);
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+      }
     }
   }
 }

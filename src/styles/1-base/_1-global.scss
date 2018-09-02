@@ -11,12 +11,20 @@ body {
 
 .big-title {
   position: absolute;
+  display: block;
   left: 20%;
   cursor: default;
   z-index: -10;
 
   @media screen and(max-width: $screen-m) {
     display: none;
+  }
+}
+
+.section-title {
+  @media screen and(max-width: $screen-m) {
+    display: block;
+    text-align: center;
   }
 }
 

@@ -4,11 +4,15 @@ const $ = require( "jquery" );
 module.exports = function( event ) {
 
 	event.preventDefault();
-
+	console.log( event );
 	let id = event.currentTarget.hash;
 
 	if ( event.target.id == "contact-button" ) {
 		id = "#contact";
+	}
+
+	if ( event.target.id == "portfolio" ) {
+		id = "body";
 	}
 
 	if ( window.innerWidth > 750 ) {

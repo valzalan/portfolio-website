@@ -17,7 +17,7 @@ let breakPoints = [],
 		posY = [];
 
 $( window ).on( "resize load", function() {
-	console.log( "updating breakpoints" );
+
 	breakPoints = updateBrPoints();
 });
 
@@ -25,7 +25,6 @@ $( window ).on( "scroll load", function() {
 
 	posY[ 1 ] = posY[ 0 ];
 	posY[ 0 ] = $( window ).scrollTop() + ( window.innerHeight / 2 ) + window.innerHeight * 0.15;
-	console.log( posY );
 
 	background( posY, breakPoints );
 });
@@ -42,18 +41,6 @@ function updateBrPoints() {
 		marginHeights += $( sections[ i ]).outerHeight( true );
 		breakPoints.push( marginHeights );
 	}
-	/*for ( let i = 0; i < sections.length; i++ ) {
-
-		if ( i != 0 ) {
-
-			marginHeights += $( sections[ i - 1 ]).outerHeight( true );
-		}
-
-		contentHeight = $( sections[ i ]).outerHeight();
-
-		breakPoints.push(( marginHeights + contentHeight ) - winHeight * 0.3 );
-	}*/
-	console.log( breakPoints );
 	return breakPoints;
 }
 
@@ -96,7 +83,7 @@ $( document ).ready( function() {
 		});
 
 		// Anchor scroll
-		$( "a, #contact-button" ).click( function( event ) {
+		$( "a, #contact-button, #portfolio" ).click( function( event ) {
 
 			navscroll( event );
 		});
@@ -112,13 +99,5 @@ $( document ).ready( function() {
 				$( `#${id} + li` ).find( "tr" ).toggleClass( id );
 			}, 100 );
 		});
-
-
-		/*
-*		if ( window.innerWidth < 1150 ) {
-*			console.log( "replaced" );
-*			$( "#li-resumem, .resume" ).attr( "onclick", "window.open( 'pages/resume/zalan_valko_resume_2018-bw.pdf' );" );
-*		}
-*/
 	});
 });

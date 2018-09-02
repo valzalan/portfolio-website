@@ -1,4 +1,4 @@
-//1150
+
 const $ = require( "jquery" ),
 			inlineSVG = require( "inline-svg" ),
 
@@ -84,8 +84,50 @@ $( document ).ready( function() {
 
 		// Anchor scroll
 		$( "a, #contact-button, #portfolio" ).click( function( event ) {
-
+			if ( event.target.id == "modal-link" ) {
+				return;
+			}
 			navscroll( event );
+		});
+
+		//--------------------
+		//		Modal window
+		//--------------------
+
+		$( ".button" ).click( function( event ) {
+
+			let id = event.target.parentElement.offsetParent.id;
+
+			$( ".projects-nopage-modal" ).toggle();
+			attachClickHandler();
+
+			switch ( id ) {
+			case "sudoku-anchor":
+				$( "#modal-link" ).attr( "href", "https://github.com/valzalan/sudoku-solver" );
+				break;
+			case "portfolio-anchor":
+				$( "#modal-link" ).attr( "href", "https://github.com/valzalan/portfolio-website" );
+				break;
+			case "todolist-anchor":
+				$( "#modal-link" ).attr( "href", "https://github.com/valzalan/to-do-list" );
+				break;
+			case "dominio-anchor":
+				$( "#modal-link" ).attr( "href", "" );
+				break;
+			}
+
+			function attachClickHandler() {
+				//TODO: Exclude the modal window
+				$( window ).click( function( event ) {
+					if ( event.target.className !== "button" ) {
+						$( ".projects-nopage-modal" ).hide();
+					}
+				});
+			}
+		});
+
+		$( ".modal-close" ).click( function() {
+			$( ".projects-nopage-modal" ).hide();
 		});
 
 		// Skill level bars

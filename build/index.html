@@ -77,7 +77,7 @@
     <section id="hero" class="wrapper">
 
       <div id="fixed-container">
-        <!--<span id="lang">eng</span>-->
+        <span id="lang">eng</span>
         <ul>
           <li><span class="heroContact" onclick="window.location.href = 'tel:+36-70-537-3697';">+36/70/537-3697</span></li>
           <li><span class="heroContact" onclick="window.location.href = 'mailto:valzalan@gmail.com';">valzalan@gmail.com</span></li>
@@ -298,13 +298,13 @@
         <div class="img-background">
           <div class="image" id="sudoku" onclick="window.open('/sudoku', '_blank');"></div>
         </div>
-        <h3>A Sudoku App</h3>
-        <p>An intuitive sudoku game app. Made entirely with pure HTML, CSS and
+        <h3>A Sudoku Solver</h3>
+        <p>An intuitive sudoku solver/game app. Made entirely with pure HTML, CSS and
         JavaScript. My primary goal with this app was to implement a recursive algorithm to
-        solve any sudoku grids. The grid generator function was added later in the process.
+        solve any sudoku puzzles. The puzzle generator function was added later in the process.
         </p>
         <div class="projects-button-container">
-          <div class="button" onclick="">Read more...</div>
+          <div class="button">Read more...</div>
           <div class="button" onclick="window.open('https://github.com/valzalan/sudoku-solver', '_blank');">
             <img class="github-icon" src="img/github-logo.svg" alt="github"/>
             <span class="button-text">Repo</span>
@@ -319,11 +319,11 @@
         <h3>My portfolio website</h3>
         <p>The site you're currently on (wooah...). It's the biggest website project I've made yet.
         Made with HTML5, Sass using .scss and JavaScript with jQuery. For the build process,
-        I used Gulp with Browserify and several plugins, including Uglify and Babel.
-        For package management, I used npm.
+        I used Gulp, bundled with Browserify and used several plugins, including Uglify, Babel and autoprefixer.
+        For package management, I used npm. Code was linted with ESLint.
         </p>
         <div class="projects-button-container">
-          <div class="button" onclick="">Read more...</div>
+          <div class="button">Read more...</div>
           <div class="button" onclick="window.open('https://github.com/valzalan/portfolio-website', '_blank');">
             <img class="github-icon" src="img/github-logo.svg" alt="github"/>
             <span class="button-text">Repo</span>
@@ -336,12 +336,11 @@
           <div class="image" id="todolist" onclick="window.open('/todolist', '_blank');"></div>
         </div>
         <h3>To Do List</h3>
-        <p>A fairly simple to do list. Impressed, yea? You can find this in almost every junior dev's repos,
-        so I thought I might as well do my own iteration of it. Built with plain HTML, CSS and vanilla Javascript,
-        with utilizing the localStorage.“Do not go by my humble beginnings. Be wary of my enormous vision.”
+        <p>A fairly simple to do list. Impressed, yea? <em>(Needed something to pad my portfolio... ahhem)</em> Built with plain HTML, CSS and vanilla Javascript,
+        with utilizing localStorage.<br/>“Do not go by my humble beginnings. Be wary of my enormous vision.”
         </p>
         <div class="projects-button-container">
-          <div class="button" onclick="">Read more...</div>
+          <div class="button">Read more...</div>
           <div class="button" onclick="window.open('https://github.com/valzalan/to-do-list', '_blank');">
             <img class="github-icon" src="img/github-logo.svg" alt="github"/>
             <span class="button-text">Repo</span>
@@ -351,7 +350,7 @@
 
       <div class="project-container" id="dominio-anchor">
         <div class="img-background">
-          <div class="image" id="Domin.io"></div>
+          <div class="image" id="dominio"></div>
         </div>
         <h3>Domin.io</h3>
         <p>An ambitious browser arena game project, still in early development.
@@ -359,14 +358,21 @@
         is done with Websockets. The build process is run by webpack.
         </p>
         <div class="projects-button-container">
-          <div class="button" onclick="">Read more...</div>
-          <div class="button" onclick="">
+          <div class="button" onclick="null">Read more...</div>
+          <div class="button" onclick="null">
             <img class="github-icon" src="img/github-logo.svg" alt="github"/>
             <span class="button-text">Repo</span>
           </div>
         </div>
       </div>
 
+    <div class="projects-nopage-modal">
+      <img class="modal-close svg"src="img/plus.svg" alt="close">
+      <h2>Case study coming soon...</h2>
+      <p>Until the dedicated project page is finished, visit my github repo for
+        more information:</p>
+      <a id="modal-link" href="">Github repository</a>
+    </div>
     <span class="big-title">PROJECTS</span>
 
     </section>

@@ -33,7 +33,7 @@ nav {
   }
 
   #contact-button {
-    @include raleway(300, 22px, $accent-color);
+    @include raleway(300, 2vw, $accent-color);
   }
 
   #contact-button:hover {
@@ -163,7 +163,7 @@ nav {
   }
 
   h2 {
-    @include roboto(900, 25px, $primary-color);
+    @include roboto(900, 35px, $primary-color);
 
     text-align: center;
   }

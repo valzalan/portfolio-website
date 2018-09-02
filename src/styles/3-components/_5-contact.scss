@@ -2,19 +2,24 @@
 #contact {
   position: relative;
   overflow: hidden;
-  margin-bottom: 0;
+  @media screen and(min-height: 1000px){
+    height: 80vh;
+  }
+  margin-bottom: 5vh;
 
   @media screen and (max-width: $screen-m){
     display: block;
   }
 
   .big-title {
-    left: 15%;
-    top: 0.2em;
+    display: block;
+    margin: 0 auto;
+    top: 0.5em;
   }
 
   h2 {
     grid-column: 1 / 7;
+    padding: 0 6em;
     margin-bottom: 5em;
 
     @media screen and(max-width: $screen-m){

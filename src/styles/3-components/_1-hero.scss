@@ -36,6 +36,8 @@
 
     #lang {
       justify-self: start;
+      color: rgba(white, .2);
+      cursor: default;
     }
 
     ul {
@@ -63,7 +65,6 @@
     top: 50%;
     left: calc(50% - 7.5vw);
     border: $accent-color 6px solid;
-    //z-index: 20;
 
     @media screen and(max-width: $screen-l) {
       width: 20vw;

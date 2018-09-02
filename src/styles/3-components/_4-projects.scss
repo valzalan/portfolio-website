@@ -58,6 +58,13 @@
     content: "01_home";
   }
 
+  #dominio-anchor .img-background {
+    cursor: default;
+    &::after {
+      content: "in_development";
+    }
+  }
+
   .image {
     width: 85%;
     height: 90%;
@@ -110,6 +117,15 @@
     @extend %middle-out-circle-sweep-animation;
   }
 
+  .button[onclick="null"]{
+    border: 3px solid $gray;
+    cursor: default;
+    color: rgba(white, 0.2);
+    &::before {
+      display: none;
+    }
+  }
+
   .github-icon {
     position: absolute;
     width: 28px;
@@ -127,7 +143,7 @@
   }
 
   #portfolio {
-    background-image: url("");
+    background-image: url("../img/portfolio-padded-0.png");
   }
 
   #todolist {
@@ -135,6 +151,55 @@
   }
 
   #dominio {
-    background-image: url("");
+    background-image: url("../img/dominio.png");
+  }
+
+  .projects-nopage-modal{
+    display: none;
+    position: fixed;
+    width: 40vw;
+    height: 40vh;
+    top: calc(50% - 20vh);
+    left: calc(50% - 20vw);
+    z-index: 10;
+    background-color: $white;
+    box-shadow: 2px 3px 8px rgba(black, .3);
+
+    @media screen and(max-width: $screen-m){
+      width: 80vw;
+      height: 30vh;
+      top: calc(50% - 15vh);
+      left: calc(50% - 40vw);
+    }
+
+    .modal-close {
+      width: 7%;
+      position: absolute;
+      right: 3%;
+      top: 3%;
+
+      & polygon{
+        fill: $accent-color;
+      }
+
+      transform: rotate(45deg);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 20px;
+      color: $primary-color;
+      margin: 2em 0 0;
+    }
+
+    p {
+      color: $primary-color;
+      margin: 2em 0 0;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+    }
   }
 }

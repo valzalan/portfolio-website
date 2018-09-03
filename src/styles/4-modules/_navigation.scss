@@ -136,7 +136,7 @@ nav {
 
     .line {
       position: relative;
-      left: 0;
+      left: 5px;
       height: 100%;
     }
 
@@ -157,6 +157,10 @@ nav {
     position: relative;
     left: 18vw;
     transition: transform .4s ease-in-out;
+
+    @media screen and (max-width: $screen-m){
+      width: 5vw;
+    }
   }
 
   .nav-cross {

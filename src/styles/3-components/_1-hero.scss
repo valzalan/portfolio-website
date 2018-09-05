@@ -56,24 +56,24 @@
   }
 
   #contact-button {
-    width: 15vw;
+    width: 16vw;
     height: 9vh;
     box-sizing: content-box;
     line-height: 9vh;
     text-align: center;
     position: absolute;
     top: 50%;
-    left: calc(50% - 7.5vw);
+    left: calc(50% - 8vw - 6px);
     border: $accent-color 6px solid;
 
     @media screen and(max-width: $screen-l) {
       width: 20vw;
-      left: calc(50% - 10vw);
+      left: calc(50% - 10vw - 6px);
     }
 
     @media screen and(max-width: $screen-m) {
       width: 40vw;
-      left: calc(50% - 20vw);
+      left: calc(50% - 20vw - 6px);
     }
 
     @extend %middle-out-sweep-animation;

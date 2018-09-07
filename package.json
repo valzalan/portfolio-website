@@ -31,7 +31,8 @@
     "express-validator": "^5.3.0",
     "inline-svg": "^2.2.3",
     "jquery": "^3.3.1",
-    "nodemailer": "^4.6.8"
+    "nodemailer": "^4.6.8",
+    "nodemailer-mailgun-transport": "^1.4.0"
   },
   "repository": {
     "type": "git",

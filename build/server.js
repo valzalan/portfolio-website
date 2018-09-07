@@ -1,17 +1,18 @@
 const express = require( "express" ),
       http = require( "http" ),
       path = require( "path" ),
-      //nodemailer = require( "nodemailer" ),
+      emailService = require( "./emailService.js" );
+      bodyParser = require( "body-parser" ),
       app = express(),
       server = http.Server( app );
-      //bodyParser = require('body-parser');
 
 const port = process.env.PORT || 3000;
 
-//app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use( express.static( __dirname + "/public" ));
 
+//TODO: Refactor routing
 // Routing
 app.get( "/", function( req, res ) {
   res.sendFile( path.join( __dirname, "index.html" ));
@@ -28,34 +29,22 @@ app.get( "/todolist", function( req, res ) {
 app.get( "/resume", function( req, res ) {
   res.sendFile( path.join( __dirname, "public/pages/resume/zalan_valko_resume_2018-bw.pdf" ));
 });
-/*
-app.post('/contact', function (req, res) {
 
-  let transporter = nodemailer.createTransport({
-    service: 'SendPulse',
-    auth: {
-      user: "valzalan@gmail.com",
-      pass: "wales3734<>12"
-    }
-  });
+app.post('/contact', function () {
+  let from = "test@testing.com",
+      to = "valzalan@gmail.com",
+      title = "Test",
+      text = "Testing email service";
 
-  let mailOptions = {
-    from: req.body.email,
-    to: "valzalan@gmail.com",
-    subject: "Message from valzalan.me",
-    text: req.body.message
-  };
-
-  smtpTrans.sendMail(mailOpts, function (error, response) {
-    if (error) {
-      res.render('contact-failure');
-    }
-    else {
-      res.render('contact-success');
-    }
-  });
+  EmailService.sendText(from, to, title, text)
+  .then( () => {
+    console.log("Email sent successfully!");
+  })
+  .catch( () => {
+    console.log("Error sending email!");
+  })
 });
-*/
+
 // Starts the server.
 server.listen( port, function() {
   console.log( "Starting server on port 5000" );

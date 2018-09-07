@@ -158,7 +158,6 @@
     display: none;
     position: fixed;
     width: 40vw;
-    height: 40vh;
     top: calc(50% - 20vh);
     left: calc(50% - 20vw);
     z-index: 10;
@@ -167,8 +166,8 @@
 
     @media screen and(max-width: $screen-m){
       width: 80vw;
-      height: 30vh;
-      top: calc(50% - 15vh);
+      height: 40vh;
+      top: calc(50% - 20vh);
       left: calc(50% - 40vw);
     }
 
@@ -200,6 +199,7 @@
     a {
       display: block;
       text-align: center;
+      margin-bottom: 3em;
     }
   }
 }

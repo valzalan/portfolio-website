@@ -4,6 +4,7 @@ const express = require( "express" ),
       nodemailer = require( "nodemailer" ),
       bodyParser = require( "body-parser" ),
       expressSanitizer = require( "express-sanitizer" ),
+
       app = express(),
       server = http.Server( app );
 
@@ -29,7 +30,7 @@ app.get( "/todolist", function( req, res ) {
 });
 
 app.get( "/resume", function( req, res ) {
-  res.sendFile( path.join( __dirname, "public/pages/resume/zalan_valko_resume_2018-bw.pdf" ));
+  res.sendFile( path.join( __dirname, "public/pages/resume/zalan_valko_resume_2018.pdf" ));
 });
 
 app.post( "/contact", function ( req, res ) {
@@ -72,5 +73,5 @@ app.post( "/contact", function ( req, res ) {
 
 // Starts the server.
 server.listen( port, function() {
-  console.log( "Starting server on port 3000" );
+  console.log( "Starting server on: " + port );
 });

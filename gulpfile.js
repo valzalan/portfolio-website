@@ -95,7 +95,7 @@ gulp.task( "watch", function() {
    gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
    gulp.watch( [ "./src/styles/**/*.scss", "!./src/styles/5-pages/*"], [ "sass" ] );
    //TODO: implement a routing algorithm for future pages
-   gulp.watch( "./src/styles/5-pages/*.scss", [ "resume-sass" ] );
+   //gulp.watch( "./src/styles/5-pages/*.scss", [ "resume-sass" ] );
 });
 
 //--------------------

@@ -386,7 +386,7 @@
     <br/>Hit me with an email!</h2>
 
     <div>
-      <form method="POST" id="contact_form" action="/contact">
+      <form method="POST" id="contact_form" action="/">
         <ul>
           <li><input type="text" id="name" name="name" placeholder="Name *" required></li>
           <li><input type="email" id="email" name="email" placeholder="E-mail *" required></li>
@@ -426,6 +426,12 @@
       </ul>
     </div>
 
+    <div class="contact-modal">
+      <img class="modal-close svg" src="img/plus.svg" alt="close">
+      <h1></h1>
+      <p></p>
+    </div>
+
   <span class="big-title white">CONTACT ME</span>
 
   </section>
@@ -438,6 +444,8 @@
       document.getElementById( "year" ).innerHTML = new Date().getFullYear();
     </script>
   </footer>
+  <div class="cursorMask">
+  </div>
   <script src="scripts/bundle.js"></script>
 </body>
 </html>

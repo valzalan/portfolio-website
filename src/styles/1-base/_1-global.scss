@@ -1,6 +1,6 @@
-//------------------------//
-// Global styles
-//========================//
+//---------------------
+//    Global styles
+//---------------------
 
 body {
   background-color: $primary-color;
@@ -63,4 +63,10 @@ footer {
   background-color: rgba($primary-color, .8);
   height: 3em;
   padding-top: 1em;
+}
+
+.waitCursor {
+  * {
+    cursor: wait !important;
+  }
 }

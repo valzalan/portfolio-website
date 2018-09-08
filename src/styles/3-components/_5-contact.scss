@@ -145,6 +145,13 @@
 
     li {
       margin-bottom: 10px !important;
+      &.error::before {
+        content: "This field can't be empty.";
+        position: relative;
+        top: 0;
+        left: 0;
+        color: red;
+      }
     }
 
     input, button, textarea {
@@ -165,6 +172,10 @@
       max-height: 50em;
       padding: 1em;
       resize: vertical;
+
+      &.error {
+        border: solid 2px red;
+      }
     }
 
     input[type="submit"] {
@@ -173,6 +184,78 @@
 
       &:hover {
         color: white;
+      }
+    }
+  }
+
+  .contact-modal {
+    position: absolute;
+    display: none;
+    width: 40vw;
+    height: 32vh;
+    top: calc(50% - 16vh);
+    left: calc(50% - 20vw);
+    background-color: $white;
+    box-shadow: 7px 7px 5px rgba(#333333, .6);
+    border-radius: 2px;
+    border: solid 2px $accent-color;
+    animation: scaleIn .15s ease;
+
+    &.error {
+      border: solid 2px red;
+
+      h1 {
+        color: red;
+      }
+    }
+
+    &.animOut {
+      animation: scaleOut .15s ease;
+    }
+
+    h1 {
+      display: block;
+      text-align: center;
+      margin-top: 1em;
+      padding: 0 1em;
+      @include openSans(700, 1.9vw, $accent-color);
+    }
+
+    p {
+      display: block;
+      position: static;
+      text-align: center;
+      margin-top: 2em;
+      padding: 0 2em;
+      @include openSans(200, 1.3vw, black);
+    }
+
+    .modal-close {
+      width: 6%;
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      cursor: pointer;
+
+      & polygon{
+        fill: $accent-color;
+      }
+
+      transform: rotate(45deg);
+    }
+
+    @media screen and(max-width: $screen-m){
+      width: 85vw;
+      height: 20vh;
+      top: calc(50% - 10vh);
+      left: calc(50% - 42.5vw);
+
+      h1 {
+        font-size: 4vw;
+      }
+
+      p {
+        font-size: 3vw;
       }
     }
   }

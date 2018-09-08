@@ -163,6 +163,11 @@
     z-index: 10;
     background-color: $white;
     box-shadow: 2px 3px 8px rgba(black, .3);
+    animation: scaleIn .15s ease;
+
+    &.animOut {
+      animation: scaleOut .15s ease;
+    }
 
     @media screen and(max-width: $screen-m){
       width: 80vw;
@@ -177,7 +182,7 @@
       right: 3%;
       top: 3%;
 
-      & polygon{
+      & polygon {
         fill: $accent-color;
       }
 

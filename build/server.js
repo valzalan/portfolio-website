@@ -3,9 +3,9 @@ const express = require( "express" ),
       path = require( "path" ),
       nodemailer = require( "nodemailer" ),
       bodyParser = require( "body-parser" ),
-      expressSanitizer = require( "express-sanitizer" ),
+      expressSanitizer = require( "express-sanitizer" );
 
-      app = express(),
+const app = express(),
       server = http.Server( app );
 
 const port = process.env.PORT || 3000;
@@ -15,29 +15,27 @@ app.use( expressSanitizer() );
 
 app.use( express.static( __dirname + "/public" ));
 
-//TODO: Refactor routing
-// Routing
-app.get( "/", function( req, res ) {
-  res.sendFile( path.join( __dirname, "index.html" ));
-});
+const routes = {
+  "/": "index.html",
+  "/sudoku": "pages/sudoku.html",
+  "/todolist": "pages/todolist.html",
+  "/resume": "public/pages/resume/zalan_valko_resume_2018.pdf"
+};
 
-app.get( "/sudoku", function( req, res ) {
-  res.sendFile( path.join( __dirname, "pages/sudoku.html" ));
-});
-
-app.get( "/todolist", function( req, res ) {
-  res.sendFile( path.join( __dirname, "pages/todolist.html" ));
-});
-
-app.get( "/resume", function( req, res ) {
-  res.sendFile( path.join( __dirname, "public/pages/resume/zalan_valko_resume_2018.pdf" ));
+//  Routing
+app.get( /^\//, function( req, res ) {
+  if( routes.hasOwnProperty( req.originalUrl ) ) {
+    res.sendFile( path.join( __dirname, routes[ req.originalUrl ] ) );
+  } else {
+    res.status( 404 ).send( "Sorry, I didn't find the page you were looking for :(" );
+  }
 });
 
 app.post( "/contact", function ( req, res ) {
   let data = {
-    name: req.sanitize( req.body.name ),
-    email: req.sanitize( req.body.email ),
-    phone: req.sanitize( req.body.phone ),
+    name:    req.sanitize( req.body.name ),
+    email:   req.sanitize( req.body.email ),
+    phone:   req.sanitize( req.body.phone ),
     message: req.sanitize( req.body.message )
   };
 
@@ -73,5 +71,5 @@ app.post( "/contact", function ( req, res ) {
 
 // Starts the server.
 server.listen( port, function() {
-  console.log( "Starting server on: " + port );
+  console.log( "Starting server on port: " + port );
 });

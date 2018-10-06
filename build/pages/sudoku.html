@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sudoku solver and game app"/>
     <meta name="keywords" content="sudoku, solver, puzzle, recursive algorithm"/>
-    <meta name="author" content="Zalan Valko"/>
-    <meta name="theme-color" content="">
+    <meta name="author" content="Zalán Valkó"/>
+    <meta name="theme-color" content="#FF533D">
 
     <title>Sudoku Solver</title>
     <link rel="stylesheet" href="pages/live-projects/sudoku/styles/main.css">
@@ -16,27 +16,29 @@
       <h2 id="modal-text"></h2>
       <img src="pages/live-projects/sudoku/img/close.svg" alt="close" id="close"/>
     </div>
-    <h1 id="title">Sudoku Solver</h1>
-    <div class="tips">
-      <p>Some tips:</p>
-      <ul>
-        <li>Hit <strong>'Enter'</strong> to solve the puzzle.</li>
-        <li>Hit <strong>'Space'</strong> to clear the whole grid.</li>
-      </ul>
+    <div class="container">
+      <h1 id="title">Sudoku Solver</h1>
+      <div id="tips">
+        <p>Some tips:</p>
+        <ul>
+          <li>Hit <strong>'Enter'</strong> to solve the puzzle.</li>
+          <li>Hit <strong>'Space'</strong> to clear the whole grid.</li>
+        </ul>
+      </div>
+      <table id="button_container">
+        <tr>
+          <td class="buttonCell">
+            <button type="button" id="btn-solve">Solve</button>
+          </td>
+          <td class="buttonCell">
+            <button type="button" id="btn-clear">Clear</button>
+          </td>
+          <td class="buttonCell">
+            <button tpye="button" id="btn-make">Make</button>
+          </td>
+        </tr>
+      </table>
     </div>
-    <table id = "button_container">
-      <tr>
-        <td class="buttonCell">
-          <button type="button" id="btn-solve">Solve</button>
-        </td>
-        <td class="buttonCell">
-          <button type="button" id="btn-clear">Clear</button>
-        </td>
-        <td class="buttonCell">
-          <button tpye="button" id="btn-make">Make</button>
-        </td>
-      </tr>
-    </table>
-  <script src="pages/live-projects/sudoku/scripts/bundle.js"></script>
+    <script src="pages/live-projects/sudoku/scripts/bundle.js"></script>
   </body>
 </html>

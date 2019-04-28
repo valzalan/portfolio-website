@@ -8,17 +8,12 @@ const $ = require( "jquery" ),
 const background = require( "./background.js" ),
 			toggleNav = require( "./nav.js" ),
 			navscroll = require( "./nav-scroll.js" ),
-			changeVis = require( "./change-vis.js" ),
-			modal = require( "./modal.js" );
-
-//TODO: Maybe pull out to a file?
-// .on("load") can't be triggered inside document.ready()
+			changeVis = require( "./change-vis.js" );
 
 let breakPoints = [],
 		posY = [];
 
 $( window ).on( "resize load", function() {
-
 	breakPoints = updateBrPoints();
 });
 
@@ -91,72 +86,6 @@ $( document ).ready( function() {
 			navscroll( event );
 		});
 
-		//--------------------
-		//		Contact POST
-		//--------------------
-
-		$( "#contact_form" ).on( "submit", function( event ) {
-			event.preventDefault();
-
-			let message = $( "textarea" );
-			if ( message.val() == "" ) {
-				message.toggleClass( "error" );
-				message.parent().toggleClass( "error" );
-				return;
-			} else if ( message.hasClass( "error" )) {
-				message.removeClass( "error" );
-				message.parent().removeClass( "error" );
-			}
-
-			$( "html" ).toggleClass( "waitCursor" );
-
-			$.ajax({
-				url: "/contact",
-				type: "POST",
-				data: $( this ).serialize(),
-				success: function() {
-					$( "input[name], textarea" ).val( "" );
-					modal.init({ section: "contact", type: "ok" });
-					modal.show( "contact" );
-					$( "html" ).removeClass( "waitCursor" );
-				},
-				error: function() {
-  				modal.init({ section: "contact", type: "error" });
-					modal.show( "contact" );
-					$( "html" ).removeClass( "waitCursor" );
-				}
-			});
-
-			$( window ).one( "click", function( event ) {
-				modal.hide( "contact" );
-			});
-
-			return false;
-		});
-
-		//----------------------------------------
-		//		Modal window in projects section
-		//----------------------------------------
-
-		$( ".button" ).click( function( event ) {
-
-			let id = event.target.parentElement.offsetParent.id;
-			modal.init({ section: "projects", projectId: id });
-			modal.show( "projects" );
-			$( window ).on( "click", function closeModal( event ) {
-				console.log( "hiding modal" );
-				if ( event.target.className !== "button" ) {
-					modal.hide( "projects" );
-					$( window ).off( "click", closeModal );
-				}
-			});
-		});
-
-		$( ".modal-close" ).click( function( event ) {
-			console.log( event );
-			modal.hide();
-		});
-
 		// Skill level bars
 		$( ".skill" ).click( function( event ) {
 
@@ -170,3 +99,48 @@ $( document ).ready( function() {
 		});
 	});
 });
+
+/*
+//--------------------
+//		Contact POST
+//--------------------
+
+$( "#contact_form" ).on( "submit", function( event ) {
+	event.preventDefault();
+
+	let message = $( "textarea" );
+	if ( message.val() == "" ) {
+		message.toggleClass( "error" );
+		message.parent().toggleClass( "error" );
+		return;
+	} else if ( message.hasClass( "error" )) {
+		message.removeClass( "error" );
+		message.parent().removeClass( "error" );
+	}
+
+	$( "html" ).toggleClass( "waitCursor" );
+
+	$.ajax({
+		url: "/contact",
+		type: "POST",
+		data: $( this ).serialize(),
+		success: function() {
+			$( "input[name], textarea" ).val( "" );
+			modal.init({ section: "contact", type: "ok" });
+			modal.show( "contact" );
+			$( "html" ).removeClass( "waitCursor" );
+		},
+		error: function() {
+			modal.init({ section: "contact", type: "error" });
+			modal.show( "contact" );
+			$( "html" ).removeClass( "waitCursor" );
+		}
+	});
+
+	$( window ).one( "click", function( event ) {
+		modal.hide( "contact" );
+	});
+
+	return false;
+});
+/**/

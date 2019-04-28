@@ -1,12 +1,3 @@
-npm_cheat_sheet.txt
 /node_modules
 /.sass-cache
-/mockup
-/prototype
-/build/pages/project_page
-/build/public/pages/project_page
-src/project_pages/
-awskey.pem
-build/lang-hun.json
-_old_gulpfile.js
 /**/*.map

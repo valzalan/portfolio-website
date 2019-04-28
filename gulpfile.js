@@ -1,105 +1,80 @@
-
-'use strict';
-
-const gulp = require( "gulp" );
+const { src, dest, parallel, series, watch } = require('gulp');
 
 //    JavaScript bundling
-const browserify = require( "browserify" ),
+const webpack = require( "webpack" );
       babel = require( "gulp-babel" ),
-      uglify = require( "gulp-uglify" ),
-      eslint = require( "gulp-eslint" );
+      butternut = require( "gulp-butternut" );
 
 //    Utilities
-const source = require( "vinyl-source-stream" ),
-      buffer = require( "vinyl-buffer" ),
-      sourcemaps = require( "gulp-sourcemaps" ),
-      log = require( "gulplog" );
+const sourcemaps = require( "gulp-sourcemaps" ),
+      log = require( "gulplog" ),
+      webpackStream = require( "webpack-stream" ),
+      webpackConfig = require( "./webpack.config.js" );
 
 //    Css pre and postprocessing
 const sass = require( "gulp-sass" ),
       autoprefixer = require( "gulp-autoprefixer" );
 
 //---------------------------
-//    Tasks for main page
+//    JavaScript Bundling
 //---------------------------
 
-gulp.task( "bundle-js", [ "lint" ], function() {
-
-  var b = browserify({
-    entries: "./src/scripts/main.js",
-    debug: true
-  });
-
-  return b.bundle()
-    .pipe( source( "bundle.js" ))
-    .pipe( buffer())
+function js() {
+  return src( "./src/scripts/main.js" )
+    .pipe( webpackStream(webpackConfig), webpack )
+    //.pipe( source( "bundle.js" ))
+    //.pipe( buffer())
     .pipe( sourcemaps.init( { loadMaps: true } ))
-        // Transforms
-        .pipe( babel({
-                presets: ["env"]
-            }))
-        .pipe( uglify() )
-        .on( "error", log.error )
+      // Transforms
+      .pipe(babel({
+            presets: ['@babel/env']
+        }))
+      .pipe( butternut())
+      .on("error", console.error.bind(console))
     .pipe( sourcemaps.write( "./" ))
-    .pipe( gulp.dest( "./build/public/scripts/" ));
-});
+    .pipe( dest( "./build/public/scripts/" ));
+}
 
-gulp.task( "lint", function() {
-  return gulp.src( "./src/scripts/**/*.js" )
+function lint() {
+  return src( "./src/scripts/**/*.js" )
     .pipe( eslint( { fix: true } ))
     .pipe( eslint.format() )
-    .pipe( gulp.dest( "./src/scripts/" ));
-});
+    .pipe( dest( "./src/scripts/" ));
+}
 
-gulp.task( "sass", function() {
-
- return gulp.src( [ "./src/styles/**/*.scss", "!./src/styles/5-pages/*" ] )
-  .pipe( sourcemaps.init() )
-
-  .pipe( sass( {
-    outputStyle: "compressed"
-  }).on( "error", sass.logError ))
-  .pipe( autoprefixer( {
-    browsers: [ "last 2 versions" ],
-    cascade: false
-  }))
-  .pipe( sourcemaps.write( "./" ))
-  .pipe( gulp.dest( "./build/public/styles/" ));
-});
-
-//----------------------------
-//   Tasks for resume page
-//----------------------------
-
-gulp.task( "resume-sass", function() {
-
- return gulp.src( "./src/styles/5-pages/resume.scss" )
-  .pipe( sourcemaps.init() )
-
-  .pipe( sass( {
-    outputStyle: "compressed"
-  }).on( "error", sass.logError ))
-  .pipe( autoprefixer( {
-    browsers: [ "last 2 versions" ],
-    cascade: false
-  }))
-  .pipe( sourcemaps.write( "./" ))
-  .pipe( gulp.dest( "./build/pages/resume/styles/" ));
-});
+function css() {
+  return src( "./src/styles/**/*.scss" )
+   .pipe( sourcemaps.init() )
+   .pipe( sass( {
+     outputStyle: "compressed"
+   }).on( "error", sass.logError ))
+   .pipe( autoprefixer( {
+     browsers: [ "last 2 versions" ],
+     cascade: false
+   }))
+   .pipe( sourcemaps.write( "./" ))
+   .pipe( dest( "./build/public/styles/" ));
+}
 
 //-------------------
 //    Watch tasks
 //-------------------
+function watchJs() {
+  return watch("./src/scripts/**/*.js", series(lint, js));
+}
 
-gulp.task( "watch", function() {
-   gulp.watch( "./src/scripts/**/*.js", [ "bundle-js" ] );
-   gulp.watch( [ "./src/styles/**/*.scss", "!./src/styles/5-pages/*"], [ "sass" ] );
-   //TODO: implement a routing algorithm for future pages
-   //gulp.watch( "./src/styles/5-pages/*.scss", [ "resume-sass" ] );
-});
+function watchCss() {
+  return watch("./src/styles/**/*.scss", css);
+}
 
-//--------------------
-//    Default task
-//--------------------
+//---------------
+//    Exports
+//---------------
 
-gulp.task( "default", [ "bundle-js", "sass", "resume-sass" ] );
+exports.watchJs = watchJs;
+exports.watchCss = watchCss;
+exports.watch = parallel(watchJs, watchCss);
+
+exports.js = series(lint, js);
+exports.css = css;
+exports.default = parallel(css, js);

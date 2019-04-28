@@ -1,11 +1,11 @@
 
 const $ = require( "jquery" ),
-			inlineSVG = require( "inline-svg" ),
+			inlineSVG = require( "inline-svg" );
 
 
 			//------      Own modules      ------
 
-			background = require( "./background.js" ),
+const background = require( "./background.js" ),
 			toggleNav = require( "./nav.js" ),
 			navscroll = require( "./nav-scroll.js" ),
 			changeVis = require( "./change-vis.js" ),

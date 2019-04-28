@@ -31,7 +31,7 @@ module.exports = function( event ) {
 		}
 
 	} else {
-
+		console.log("animating navigation")
 		$( "#navContainer" ).css( "height", "100vh" );
 		// Normal nav animation
 		if ( $( "#navContainer" ).css( "display" ) == "none" ) {

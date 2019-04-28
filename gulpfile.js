@@ -1,5 +1,8 @@
 const { src, dest, parallel, series, watch } = require('gulp');
 
+//    HTML Minify
+const htmlmin = require("gulp-htmlmin");
+
 //    JavaScript bundling
 const webpack = require( "webpack" );
       babel = require( "gulp-babel" ),
@@ -22,8 +25,6 @@ const sass = require( "gulp-sass" ),
 function js() {
   return src( "./src/scripts/index.js" )
     .pipe( webpackStream(webpackConfig), webpack )
-    //.pipe( source( "bundle.js" ))
-    //.pipe( buffer())
     .pipe( sourcemaps.init( { loadMaps: true } ))
       // Transforms
       .pipe(babel({
@@ -33,13 +34,6 @@ function js() {
       .on("error", console.error.bind(console))
     .pipe( sourcemaps.write( "./" ))
     .pipe( dest( "./build/public/scripts/" ));
-}
-
-function lint() {
-  return src( "./src/scripts/**/*.js" )
-    .pipe( eslint( { fix: true } ))
-    .pipe( eslint.format() )
-    .pipe( dest( "./src/scripts/" ));
 }
 
 function css() {
@@ -56,9 +50,20 @@ function css() {
    .pipe( dest( "./build/public/styles/" ));
 }
 
+function html() {
+  return src( "src/index.html" )
+    .pipe( htmlmin({
+      collapseWhitespace: true,
+      removeComments: true,
+      minifyJs: true
+     }))
+    .pipe( dest( "build" ));
+}
+
 //-------------------
 //    Watch tasks
 //-------------------
+
 function watchJs() {
   return watch("./src/scripts/**/*.js", series(lint, js));
 }
@@ -67,14 +72,19 @@ function watchCss() {
   return watch("./src/styles/**/*.scss", css);
 }
 
+function watchHtml() {
+  return watch("./src/index.html", html);
+}
+
 //---------------
 //    Exports
 //---------------
 
-exports.watchJs = watchJs;
-exports.watchCss = watchCss;
-exports.watch = parallel(watchJs, watchCss);
+module.exports = {
+  watch: parallel(watchHtml, watchJs, watchCss),
 
-exports.js = series(lint, js);
-exports.css = css;
-exports.default = parallel(css, js);
+  html: html,
+  js: js,
+  css: css,
+  default: parallel(html, css, js)
+};

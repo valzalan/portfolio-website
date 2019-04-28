@@ -1,3 +1,4 @@
+//TODO: Refactor!
 
 const $ = require( "jquery" ),
 			inlineSVG = require( "inline-svg" );
@@ -5,10 +6,8 @@ const $ = require( "jquery" ),
 
 			//------      Own modules      ------
 
-const background = require( "./background.js" ),
-			toggleNav = require( "./nav.js" ),
-			navscroll = require( "./nav-scroll.js" ),
-			changeVis = require( "./change-vis.js" );
+const util = require( "./util.js" ),
+			nav = require( "./nav.js" );
 
 let breakPoints = [],
 		posY = [];
@@ -22,7 +21,7 @@ $( window ).on( "scroll load", function() {
 	posY[ 1 ] = posY[ 0 ];
 	posY[ 0 ] = $( window ).scrollTop() + ( window.innerHeight / 2 ) + window.innerHeight * 0.15;
 
-	background( posY, breakPoints );
+	util.background( posY, breakPoints );
 });
 
 function updateBrPoints() {
@@ -52,12 +51,12 @@ $( document ).ready( function() {
 
 		console.log( "All SVGs inlined" );
 
-		changeVis( "hidden", "all", "#hero" );
+		util._changeVis( "hidden", "all", "#hero" );
 		//------      Event handlers      ------
 
 		$( "#sidebar, .nav-cross, .hamburger" ).click( function( event ) {
 			$( ".nav-cross" ).removeClass( "static" );
-			toggleNav( event );
+			nav.toggleNav( event );
 		});
 
 		$( ".nav-cross" ).hover( function() {
@@ -83,7 +82,7 @@ $( document ).ready( function() {
 			if ( event.target.id == "modal-link" ) {
 				return;
 			}
-			navscroll( event );
+			nav.navScroll( event );
 		});
 
 		// Skill level bars
@@ -98,49 +97,48 @@ $( document ).ready( function() {
 			}, 100 );
 		});
 	});
-});
 
-/*
-//--------------------
-//		Contact POST
-//--------------------
 
-$( "#contact_form" ).on( "submit", function( event ) {
-	event.preventDefault();
+	//--------------------
+	//		Contact POST
+	//--------------------
 
-	let message = $( "textarea" );
-	if ( message.val() == "" ) {
-		message.toggleClass( "error" );
-		message.parent().toggleClass( "error" );
-		return;
-	} else if ( message.hasClass( "error" )) {
-		message.removeClass( "error" );
-		message.parent().removeClass( "error" );
-	}
+	$( "#contact_form" ).on( "submit", function( event ) {
+		event.preventDefault();
 
-	$( "html" ).toggleClass( "waitCursor" );
-
-	$.ajax({
-		url: "/contact",
-		type: "POST",
-		data: $( this ).serialize(),
-		success: function() {
-			$( "input[name], textarea" ).val( "" );
-			modal.init({ section: "contact", type: "ok" });
-			modal.show( "contact" );
-			$( "html" ).removeClass( "waitCursor" );
-		},
-		error: function() {
-			modal.init({ section: "contact", type: "error" });
-			modal.show( "contact" );
-			$( "html" ).removeClass( "waitCursor" );
+		let message = $( "textarea" );
+		if ( message.val() == "" ) {
+			message.toggleClass( "error" );
+			message.parent().toggleClass( "error" );
+			return;
+		} else if ( message.hasClass( "error" )) {
+			message.removeClass( "error" );
+			message.parent().removeClass( "error" );
 		}
-	});
 
-	$( window ).one( "click", function( event ) {
-		modal.hide( "contact" );
-	});
+		$( "html" ).toggleClass( "waitCursor" );
 
-	return false;
+		$.ajax({
+			url: "/contact",
+			type: "POST",
+			data: $( this ).serialize(),
+			success: function() {
+				$( "input[name], textarea" ).val( "" );
+				modal.init({ section: "contact", type: "ok" });
+				modal.show( "contact" );
+				$( "html" ).removeClass( "waitCursor" );
+			},
+			error: function() {
+				modal.init({ section: "contact", type: "error" });
+				modal.show( "contact" );
+				$( "html" ).removeClass( "waitCursor" );
+			}
+		});
+
+		$( window ).one( "click", function( event ) {
+			modal.hide( "contact" );
+		});
+
+		return false;
+	});
 });
-/**/

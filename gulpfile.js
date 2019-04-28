@@ -20,7 +20,7 @@ const sass = require( "gulp-sass" ),
 //---------------------------
 
 function js() {
-  return src( "./src/scripts/main.js" )
+  return src( "./src/scripts/index.js" )
     .pipe( webpackStream(webpackConfig), webpack )
     //.pipe( source( "bundle.js" ))
     //.pipe( buffer())

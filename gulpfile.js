@@ -1,3 +1,7 @@
+//---------------//
+//    Imports    //
+//---------------//
+
 const { src, dest, parallel, series, watch } = require('gulp');
 
 //    HTML Minify
@@ -18,20 +22,19 @@ const sourcemaps = require( "gulp-sourcemaps" ),
 const sass = require( "gulp-sass" ),
       autoprefixer = require( "gulp-autoprefixer" );
 
-//---------------------------
-//    JavaScript Bundling
-//---------------------------
+//-------------//
+//    Tasks    //
+//-------------//
 
 function js() {
-  return src( "./src/scripts/index.js" )
-    .pipe( webpackStream(webpackConfig), webpack )
+  return src( "./src/scripts/*.js" )
     .pipe( sourcemaps.init( { loadMaps: true } ))
-      // Transforms
-      .pipe(babel({
-            presets: ['@babel/env']
-        }))
-      .pipe( butternut())
-      .on("error", console.error.bind(console))
+    .pipe( webpackStream( webpackConfig ), webpack )
+    .pipe( babel({
+      presets: ['@babel/env']
+    }))
+    .pipe( butternut() )
+    .on( "error", console.error.bind( console ))
     .pipe( sourcemaps.write( "./" ))
     .pipe( dest( "./build/public/scripts/" ));
 }
@@ -60,31 +63,30 @@ function html() {
     .pipe( dest( "build" ));
 }
 
-//-------------------
-//    Watch tasks
-//-------------------
+//-------------------//
+//    Watch tasks    //
+//-------------------//
 
 function watchJs() {
-  return watch("./src/scripts/**/*.js", series(lint, js));
+  return watch( "./src/scripts/**/*.js", js );
 }
 
 function watchCss() {
-  return watch("./src/styles/**/*.scss", css);
+  return watch( "./src/styles/**/*.scss", css );
 }
 
 function watchHtml() {
-  return watch("./src/index.html", html);
+  return watch( "./src/index.html", html );
 }
 
-//---------------
-//    Exports
-//---------------
+//---------------//
+//    Exports    //
+//---------------//
 
 module.exports = {
-  watch: parallel(watchHtml, watchJs, watchCss),
-
+  watch: parallel( watchHtml, watchJs, watchCss ),
   html: html,
   js: js,
   css: css,
-  default: parallel(html, css, js)
+  default: parallel( html, css, js )
 };

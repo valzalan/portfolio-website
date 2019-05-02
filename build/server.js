@@ -69,7 +69,7 @@ app.post( "/contact", function ( req, res ) {
  });
 });
 
-// Starts the server.
+// Start the server.
 server.listen( port, function() {
   console.log( "Starting server on port: " + port );
 });

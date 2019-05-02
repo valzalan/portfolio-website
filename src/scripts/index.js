@@ -1,19 +1,20 @@
-//TODO: Refactor!
+//---------------
+//    Imports
+//---------------
 
 const $ = require( "jquery" ),
-			inlineSVG = require( "inline-svg" );
+	  inlineSVG = require( "inline-svg" );
 
-
-			//------      Own modules      ------
-
+//		Own modules
 const util = require( "./util.js" ),
-			nav = require( "./nav.js" );
+	  nav = require( "./nav.js" );
 
+//     Global variables
 let breakPoints = [],
-		posY = [];
+    posY = [];
 
 $( window ).on( "resize load", function() {
-	breakPoints = updateBrPoints();
+	breakPoints = util.updateBrPoints();
 });
 
 $( window ).on( "scroll load", function() {
@@ -24,121 +25,85 @@ $( window ).on( "scroll load", function() {
 	util.background( posY, breakPoints );
 });
 
-function updateBrPoints() {
-
-	let winHeight = $( window ).height(),
-			marginHeights = 0,
-			contentHeight,
-			breakPoints = [],
-			sections = [ "#hero", "#about", "#skills", "#projects" ];
-
-	for ( let i = 0; i < sections.length; i++ ) {
-		marginHeights += $( sections[ i ]).outerHeight( true );
-		breakPoints.push( marginHeights );
-	}
-	return breakPoints;
-}
-
-
 $( document ).ready( function() {
 
-	// Icons need to be inlined, so
+    // Icons need to be inlined, so
 	// everything starts as a callback of inlineSVG
 
 	inlineSVG.init({
-		svgSelector: "img.svg"
+	    svgSelector: "img.svg"
 	}, function() {
-
-		console.log( "All SVGs inlined" );
-
+	    console.log( "All SVGs inlined" );
 		util._changeVis( "hidden", "all", "#hero" );
-		//------      Event handlers      ------
-
-		$( "#sidebar, .nav-cross, .hamburger" ).click( function( event ) {
-			$( ".nav-cross" ).removeClass( "static" );
-			nav.toggleNav( event );
-		});
-
-		$( ".nav-cross" ).hover( function() {
-			$( this ).addClass( "static" );
-		});
-		// Project items in menu
-		$( "#project-dropdown-icon" ).click( function() {
-
-			if ( $( ".subitem" ).css( "display" ) == "list-item" ) {
-
-				$( this ).css( "transform", "rotateZ(0deg)" );
-
-			} else {
-
-				$( this ).css( "transform", "rotateZ(45deg)" );
-			}
-
-			$( ".subitem" ).toggle();
-		});
-
-		// Anchor scroll
-		$( "a, #contact-button, #portfolio" ).click( function( event ) {
-			if ( event.target.id == "modal-link" ) {
-				return;
-			}
-			nav.navScroll( event );
-		});
-
-		// Skill level bars
-		$( ".skill" ).click( function( event ) {
-
-			let id = event.currentTarget.id;
-
-			$( "#skills" ).find( `#${id} + li` ).toggle();
-
-			setTimeout( function() {
-				$( `#${id} + li` ).find( "tr" ).toggleClass( id );
-			}, 100 );
-		});
-	});
-
-
-	//--------------------
-	//		Contact POST
-	//--------------------
-
-	$( "#contact_form" ).on( "submit", function( event ) {
-		event.preventDefault();
-
-		let message = $( "textarea" );
-		if ( message.val() == "" ) {
-			message.toggleClass( "error" );
-			message.parent().toggleClass( "error" );
-			return;
-		} else if ( message.hasClass( "error" )) {
-			message.removeClass( "error" );
-			message.parent().removeClass( "error" );
-		}
-
-		$( "html" ).toggleClass( "waitCursor" );
-
-		$.ajax({
-			url: "/contact",
-			type: "POST",
-			data: $( this ).serialize(),
-			success: function() {
-				$( "input[name], textarea" ).val( "" );
-				modal.init({ section: "contact", type: "ok" });
-				modal.show( "contact" );
-				$( "html" ).removeClass( "waitCursor" );
-			},
-			error: function() {
-				modal.init({ section: "contact", type: "error" });
-				modal.show( "contact" );
-				$( "html" ).removeClass( "waitCursor" );
-			}
-		});
-
-		$( window ).one( "click", function( event ) {
-			modal.hide( "contact" );
-		});
-
-		return false;
-	});
+	    setEventHandlers();
+        $( "#contact_form" ).on( "submit", initEmailMessage(event));
+    });
 });
+
+function setEventHandlers() {
+
+    $( "#sidebar, .nav-cross, .hamburger" ).click( function( e ) {
+	    $( ".nav-cross" ).removeClass( "static" );
+		nav.toggleNav( e );
+	});
+
+	$( ".nav-cross" ).hover( function() {
+	    $( this ).addClass( "static" );
+	});
+
+    // Project items in menu
+	$( "#project-dropdown-icon" ).click( function() {
+	    if ( $( ".subitem" ).css( "display" ) == "list-item" ) {
+		    $( this ).css( "transform", "rotateZ(0deg)" );
+		} else {
+			$( this ).css( "transform", "rotateZ(45deg)" );
+		}
+		$( ".subitem" ).toggle();
+	});
+
+	// Anchor scroll
+	$( "a, #contact-button, #portfolio" ).click( function( e ) {
+	    if ( e.target.id == "modal-link" ) {
+		    return;
+		}
+		nav.navScroll( e );
+	});
+
+    // Skill level bars
+    $( ".skill" ).click( function( e ) {
+        let id = e.currentTarget.id;
+		$( "#skills" ).find( `#${id} + li` ).toggle();
+		setTimeout( function() {
+			$( `#${id} + li` ).find( "tr" ).toggleClass( id );
+        }, 100 );
+	});
+}
+
+function initEmailMessage( e ) {
+    e.preventDefault();
+
+    let input = $( "textarea" );
+    if ( input.val() == "" ) {
+        input.toggleClass( "error" );
+        input.parent().toggleClass( "error" );
+        return;
+    } else if ( input.hasClass( "error" )) {
+        input.removeClass( "error" );
+        input.parent().removeClass( "error" );
+    }
+
+    $.ajax({
+        url: "/contact",
+        type: "POST",
+        data: $( this ).serialize(),
+        success: function() {
+            console.log("Email succesfully sent!");
+            $( "input[name], textarea" ).val( "" );
+        },
+        error: function(err) {
+            console.error("Error sending email.");
+            console.error(err);
+        }
+    });
+    return false;
+}

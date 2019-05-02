@@ -20,7 +20,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulplog": "^1.0.0",
     "webpack": "^4.30.0",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^5.2.1",
+    "yargs": "^13.2.2"
   },
   "dependencies": {
     "acorn": "^6.1.1",

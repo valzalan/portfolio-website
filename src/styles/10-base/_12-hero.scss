@@ -84,11 +84,10 @@
   }
 
   #scroll {
-    transform: rotate(90deg);
     display: block;
     position: absolute;
-    bottom: 20px;
-    left: calc(50% - 15px);
+    top: 93%;
+    left: calc(50% - 1px);
   }
 
   .heroContact {

@@ -98,17 +98,17 @@
     bottom: 5%;
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 15px;
 
     div:first-of-type {
-      justify-self: end;
+      justify-self: center;
     }
   }
 
   .button {
     height: 3em;
-    width: 8em;
+    width: 10em;
     line-height: 2.5em;
     border: 3px solid $accent-color;
     cursor: pointer;
@@ -148,9 +148,5 @@
 
   #todolist {
     background-image: url("../img/todolist.png");
-  }
-
-  #dominio {
-    background-image: url("../img/dominio.png");
   }
 }

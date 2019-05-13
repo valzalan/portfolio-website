@@ -14,13 +14,13 @@
   .big-title {
     display: block;
     margin: 0 auto;
-    top: 0.5em;
+    top: 0.3em;
   }
 
   h2 {
     grid-column: 1 / 7;
     padding: 0 6em;
-    margin-bottom: 5em;
+    margin-bottom: 8em;
 
     @media screen and(max-width: $screen-m){
       padding: 0 1em;

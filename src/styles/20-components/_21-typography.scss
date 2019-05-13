@@ -90,9 +90,6 @@ nav {
     @include openSans(400, 16px, $primary-color);
     letter-spacing: 1px;
     line-height: 1.5em;
-    @media screen and (max-width: $screen-s) {
-      font-size: 13px;
-    }
   }
 }
 

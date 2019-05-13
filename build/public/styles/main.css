@@ -262,11 +262,10 @@ footer {
     #hero #contact-button:hover {
       cursor: pointer; }
   #hero #scroll {
-    transform: rotate(90deg);
     display: block;
     position: absolute;
-    bottom: 20px;
-    left: calc(50% - 15px); }
+    top: 93%;
+    left: calc(50% - 1px); }
   #hero .heroContact {
     z-index: 10; }
     #hero .heroContact:hover {
@@ -383,7 +382,9 @@ footer {
       background-color: #4717f6;
       transition: width 0.3s ease-in-out; }
     #skills .skill-bar-table tr.js::before {
-      width: calc(2.4rem * 6); }
+      width: calc(2.4rem * 7); }
+    #skills .skill-bar-table tr.java::before {
+      width: calc(2.4rem * 4); }
     #skills .skill-bar-table tr.html::before {
       width: calc(2.4rem * 8); }
     #skills .skill-bar-table tr.css::before {
@@ -490,13 +491,13 @@ footer {
     bottom: 5%;
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 15px; }
     #projects .projects-button-container div:first-of-type {
-      justify-self: end; }
+      justify-self: center; }
   #projects .button {
     height: 3em;
-    width: 8em;
+    width: 10em;
     line-height: 2.5em;
     border: 3px solid #4717f6;
     cursor: pointer; }
@@ -520,8 +521,6 @@ footer {
     background-image: url("../img/portfolio-padded-0.png"); }
   #projects #todolist {
     background-image: url("../img/todolist.png"); }
-  #projects #dominio {
-    background-image: url("../img/dominio.png"); }
 
 #contact {
   position: relative;
@@ -536,11 +535,11 @@ footer {
   #contact .big-title {
     display: block;
     margin: 0 auto;
-    top: 0.5em; }
+    top: 0.3em; }
   #contact h2 {
     grid-column: 1 / 7;
     padding: 0 6em;
-    margin-bottom: 5em; }
+    margin-bottom: 8em; }
     @media screen and (max-width: 850px) {
       #contact h2 {
         padding: 0 1em;
@@ -784,9 +783,6 @@ nav #sectionName {
   color: #0e0b16;
   letter-spacing: 1px;
   line-height: 1.5em; }
-  @media screen and (max-width: 550px) {
-    #about p {
-      font-size: 13px; } }
 
 #skills h2 {
   font-family: 'Roboto', sans-serif;

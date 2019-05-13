@@ -22,6 +22,8 @@ $( window ).on( "scroll load", function() {
 	posY[ 1 ] = posY[ 0 ];
 	posY[ 0 ] = $( window ).scrollTop() + ( window.innerHeight / 2 ) + window.innerHeight * 0.15;
 
+	$("#scroll > rect").css("height", $( window ).scrollTop() + 30);
+
 	util.background( posY, breakPoints );
 });
 
@@ -36,7 +38,6 @@ $( document ).ready( function() {
 	    console.log( "All SVGs inlined" );
 		util._changeVis( "hidden", "all", "#hero" );
 	    setEventHandlers();
-        $( "#contact_form" ).on( "submit", initEmailMessage(event));
     });
 });
 
@@ -77,6 +78,10 @@ function setEventHandlers() {
 			$( `#${id} + li` ).find( "tr" ).toggleClass( id );
         }, 100 );
 	});
+
+	$( "#contact_form" ).on( "submit", function(e) {
+		initEmailMessage(e);
+	});
 }
 
 function initEmailMessage( e ) {
@@ -84,6 +89,7 @@ function initEmailMessage( e ) {
 
     let input = $( "textarea" );
     if ( input.val() == "" ) {
+		console.log("textarea error class set");
         input.toggleClass( "error" );
         input.parent().toggleClass( "error" );
         return;

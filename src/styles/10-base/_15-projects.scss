@@ -97,28 +97,40 @@
     position: absolute;
     bottom: 5%;
     display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-gap: 15px;
+    left: 10%;
+    width: 80%;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 6%;
 
-    div:first-of-type {
+    div.button {
       justify-self: center;
-    }
+      }
   }
 
   .button {
     height: 3em;
-    width: 10em;
+    width: 100%;
     line-height: 2.5em;
     border: 3px solid $accent-color;
     cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
 
     @extend %middle-out-sweep-animation;
     @extend %middle-out-circle-sweep-animation;
+
+    &.live-demo {
+        background-color: $accent-color;
+        &:before {
+            background: $white;
+            opacity: 0.2;
+        }
+    }
   }
 
   .button[onclick="null"]{
     border: 3px solid $gray;
+    background-color: $gray;
     cursor: default;
     color: rgba(white, 0.2);
     &::before {
@@ -127,15 +139,7 @@
   }
 
   .github-icon {
-    position: absolute;
-    width: 28px;
-    bottom: calc(50% - 14px);
-    left: 15px;
-  }
-
-  .button-text {
-    display: inline-block;
-    margin-left: 2em;
+    width: 27px;
   }
 
   #sudoku {

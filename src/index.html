@@ -35,9 +35,8 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a><img class="svg" id="project-dropdown-icon" src="img/plus.svg" alt="Project dropdown"/></li>
         <li class="subitem"><a href="#sudoku-anchor">Sudoku app</a></li>
-        <li class="subitem"><a href="#portfolio-anchor">My portfolio website</a></li>
-        <li class="subitem"><a href="#todolist-anchor">To Do list</a></li>
-        <li class="subitem"><a href="#dominio-anchor">Domin.io</a></li>
+        <li class="subitem"><a href="#digit-recognizer-anchor">Digit Recognizer</a></li>
+        <li class="subitem"><a href="#password-manager-anchor">Password Manager (CLI)</a></li>
         <li><a href="#contact">Contact</a></li>
         <li id="li-resume" onclick="window.open('/resume', '_blank');">See my resume</li>
       </ul>
@@ -295,39 +294,44 @@
             <img class="github-icon" src="img/github-logo.svg" alt="github"/>
             <span class="button-text">Repository</span>
           </div>
-        </div>
-      </div>
-
-      <div class="project-container" id="portfolio-anchor">
-        <div class="img-background">
-          <div class="image" id="portfolio"></div>
-        </div>
-        <h3>My portfolio website</h3>
-        <p>The site you're currently on (wooah...). It's the biggest website project I've made yet.
-        Made with HTML5, Sass using .scss and JavaScript with jQuery. For the build process,
-        I used Gulp, bundled with Browserify and used several plugins, including Uglify, Babel and autoprefixer.
-        For package management, I used npm. Code was linted with ESLint.
-        </p>
-        <div class="projects-button-container">
-          <div class="button" onclick="window.open('https://github.com/valzalan/portfolio-website', '_blank');">
-            <img class="github-icon" src="img/github-logo.svg" alt="github"/>
-            <span class="button-text">Repository</span>
+          <div class="button live-demo" onclick="window.open('https://valzalan.me/sudoku-solver', '_blank');">
+            <span class="button-text">Live Demo</span>
           </div>
         </div>
       </div>
 
-      <div class="project-container" id="todolist-anchor">
+      <div class="project-container" id="digit-recognizer-anchor">
+        <div class="img-background">
+          <div class="image" id="portfolio"></div>
+        </div>
+        <h3>Written-digit recognizer</h3>
+        <p> A written digit recognizer, powered by tensorflow.js.
+        </p>
+        <div class="projects-button-container">
+          <div class="button" onclick="window.open('https://github.com/valzalan/digit-recognizer', '_blank');">
+            <img class="github-icon" src="img/github-logo.svg" alt="github"/>
+            <span class="button-text">Repository</span>
+          </div>
+          <div class="button live-demo" onclick="window.open('https://valzalan.me/digit-recognizer', '_blank');">
+            <span class="button-text">Live Demo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-container" id="password-manager-anchor">
         <div class="img-background">
           <div class="image" id="todolist" onclick="window.open('/todolist', '_blank');"></div>
         </div>
-        <h3>To Do List</h3>
-        <p>A fairly simple to do list. Impressed, yea? <em>(Needed something to pad my portfolio... ahhem)</em> Built with plain HTML, CSS and vanilla Javascript,
-        with utilizing localStorage.<br/>“Do not go by my humble beginnings. Be wary of my enormous vision.”
+        <h3>Password Manager (CLI)</h3>
+        <p>Single state offline password manager, with a command line interface.
         </p>
         <div class="projects-button-container">
-          <div class="button" onclick="window.open('https://github.com/valzalan/to-do-list', '_blank');">
+          <div class="button" onclick="window.open('https://github.com/valzalan/cli-password-manager', '_blank');">
             <img class="github-icon" src="img/github-logo.svg" alt="github"/>
             <span class="button-text">Repository</span>
+          </div>
+          <div class="button live-demo" onclick="null">
+            <span class="button-text">Live Demo</span>
           </div>
         </div>
       </div>

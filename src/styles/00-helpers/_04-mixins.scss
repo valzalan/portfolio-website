@@ -9,14 +9,11 @@
 @mixin skillBars() {
 
   @include skillBarConstructor("js",     7);
-  @include skillBarConstructor("java",   4);
+  @include skillBarConstructor("java",   3);
   @include skillBarConstructor("html",   8);
   @include skillBarConstructor("css",    8);
   @include skillBarConstructor("jquery", 5);
   @include skillBarConstructor("sass",   8);
-  @include skillBarConstructor("node",   1);
-  @include skillBarConstructor("express",1);
-  @include skillBarConstructor("gulp",   4);
-  @include skillBarConstructor("git",    3);
-  @include skillBarConstructor("linux",  2);
+  @include skillBarConstructor("node",   4);
+  @include skillBarConstructor("express",3);
 }
